@@ -1,5 +1,5 @@
 gem "jekyll"
-gem "webrick"
+# gem "webrick" <- remove when compile on github page
 
 group :jekyll_plugins do
   gem 'jekyll-sitemap'
