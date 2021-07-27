@@ -1,7 +1,24 @@
-<ul class="nav">
-    {% for item in site.data.navbar %}
-    <li class="nav-item">
-        <a class="nav-link" href="{{item.link}}">{{ item.name }}</a>
-    </li>
-    {% endfor %}
-</ul>
+<div class="container">
+    <header class="d-flex justify-content-center py-3">
+      <ul class="nav nav-pills">
+        {% for item in site.data.navbar %}
+
+            {% if page.url == item.link %}
+                {% assign is_active = "link-secondary" %}
+            {% else %}
+                {% assign is_active = "link-dark" %}
+            {% endif %}
+
+            <li class="nav-item">
+                <a href="{{item.link}}" class="nav-link {{is_active}}" aria-current="page">
+                    {{ item.name }}
+                    {% if item.icon != "" %}
+                        <span class="material-icons">open_in_new</span>
+                    {% endif %}
+                </a>
+            </li>
+
+        {% endfor %}
+      </ul>
+    </header>
+  </div>

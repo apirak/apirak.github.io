@@ -2,6 +2,11 @@
 layout: post
 author: jill
 ---
+
+*Dec 4, 2012* - [Author](http://github.com)
+
+Once upon a time, in a village by the sea...
+
 A banana is an edible fruit – botanically a berry – produced by several kinds
 of large herbaceous flowering plants in the genus Musa.
 
