@@ -9,7 +9,9 @@ permalink: portfolio
 
   {% for post in site.posts %}
   <div class="card">
-    <img src="assets/image/{{ post.image }}" class="card-img-top" alt="...">
+    <a href="{{ post.url }}">
+      <img src="assets/image/{{ post.image }}" class="card-img-top" alt="image show example of project {{ post.title }}">
+    </a>
     <div class="d-flex flex-column card-body">
       <h5 class="card-title">{{ post.title }}</h5>
       <p class="flex-fill card-text">{{ post.description }}</p>
