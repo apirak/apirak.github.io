@@ -13,7 +13,11 @@ permalink: portfolio
       <img src="assets/image/{{ post.image }}" class="card-img-top" alt="image show example of project {{ post.title }}">
     </a>
     <div class="d-flex flex-column card-body">
-      <h5 class="card-title">{{ post.title }}</h5>
+      <h5 class="card-title">
+        <a href="{{ post.url }}">
+          {{ post.title }}
+        </a>  
+      </h5>
       <p class="flex-fill card-text">{{ post.description }}</p>
       <a href="{{ post.url }}">
         More detail
