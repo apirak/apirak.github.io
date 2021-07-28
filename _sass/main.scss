@@ -78,6 +78,7 @@ footer {
     padding-top: 4px;
     padding-bottom: 4px;
     @extend .link-dark;
+    text-align: center;
   }
 
   img {
@@ -86,7 +87,31 @@ footer {
   }
 }
 
-.material-icons {
+.contact-box {
+  a {
+    text-decoration: none;
+    padding-left: 2px;
+  }
+}
+
+.material-icons, .material-icons-outlined {
   font-size: 1rem;
   vertical-align:middle;
+  padding-bottom: 2px;
+}
+
+.material-icons {
+  @extend .link-dark;
+}
+
+.portfolio{
+  margin-top: 64px;
+}
+
+.card {
+  margin-left: 32px;
+  margin-bottom: 32px;
+  width: 320px;
+  border-radius: 16px;
+  overflow: hidden;
 }
