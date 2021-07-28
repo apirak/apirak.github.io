@@ -4,31 +4,23 @@ title: "Portfolio"
 permalink: portfolio
 ---
 
-<!-- <ul>
+
+<div class="portfolio d-flex flex-wrap justify-content-start align-items-center">
+
   {% for post in site.posts %}
-    <li>
-      <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-      {{ post.excerpt }}
-    </li>
+  <div class="card">
+    <img src="assets/image/{{ post.image }}" class="card-img-top" alt="...">
+    <div class="d-flex flex-column card-body">
+      <h5 class="card-title">{{ post.title }}</h5>
+      <p class="flex-fill card-text">{{ post.description }}</p>
+      <a href="{{ post.url }}">
+        More detail
+        <span class="material-icons">
+          navigate_next
+        </span>
+      </a>
+    </div>
+  </div>
   {% endfor %}
-</ul> -->
-
-<div class="portfolio d-flex flex-wrap justify-content-center">
-
-    <div class="card">
-      <img src="assets/image/dooexpert@2x.png" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">ERP for Advertising Agency</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-    </div>
 
 </div>

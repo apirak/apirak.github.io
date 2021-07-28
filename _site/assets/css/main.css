@@ -1721,9 +1721,9 @@ textarea.form-control-lg { min-height: calc(1.5em + (1rem + 2px)); }
 
 .link-light:hover, .link-light:focus { color: #f9fafb; }
 
-.link-dark, .material-icons, .profile-info p { color: #212529; }
+.link-dark, .material-icons, a, .nav-link { color: #212529; }
 
-.link-dark:hover, .material-icons:hover, .profile-info p:hover, .link-dark:focus, .material-icons:focus, .profile-info p:focus { color: #1a1e21; }
+.link-dark:hover, .material-icons:hover, a:hover, .nav-link:hover, .link-dark:focus, .material-icons:focus, a:focus, .nav-link:focus { color: #1a1e21; }
 
 .ratio { position: relative; width: 100%; }
 
@@ -2383,9 +2383,15 @@ html, body { height: 100%; }
 
 body { display: flex; align-items: center; flex-direction: column; background: #ffffff; color: #000000; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; }
 
+a, .nav-link, .link-dark, .material-icons { text-decoration: none; }
+
+a:hover, .nav-link:hover, .link-dark:hover, .material-icons:hover { color: #0d6efd; }
+
+a:hover .material-icons, .nav-link:hover .material-icons, .link-dark:hover .material-icons, .material-icons:hover .material-icons { color: #0d6efd; }
+
 .link-secondary { font-weight: bold; color: #000000; }
 
-footer { color: #616161; }
+footer { color: #616161; height: 72px; }
 
 .profile-page { height: 90%; display: flex; align-items: center; }
 
@@ -2397,7 +2403,7 @@ footer { color: #616161; }
 
 .profile-info { padding: 16px; width: 400px; display: flex; flex-direction: column; align-items: center; padding-left: 16px; padding-right: 16px; justify-content: center; }
 
-.profile-info p { padding-top: 4px; padding-bottom: 4px; text-align: center; }
+.profile-info p { padding-top: 4px; padding-bottom: 4px; color: #212529; text-align: center; }
 
 .profile-info img { width: 254px; margin-left: -6px; }
 
@@ -2405,8 +2411,10 @@ footer { color: #616161; }
 
 .material-icons, .material-icons-outlined { font-size: 1rem; vertical-align: middle; padding-bottom: 2px; }
 
-.portfolio { margin-top: 64px; }
+.portfolio { margin-top: 64px; height: 100%; }
 
-.card { margin-left: 32px; margin-bottom: 32px; width: 320px; border-radius: 16px; overflow: hidden; }
+.card { margin-left: 32px; margin-bottom: 32px; width: 320px; height: 432px; border-radius: 16px; overflow: hidden; border: 0px; box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.15); }
+
+.card-body { flex-direction: column; }
 
 /*# sourceMappingURL=main.css.map */

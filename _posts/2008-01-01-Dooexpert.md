@@ -1,9 +1,11 @@
 ---
 layout: post
-author: jill
+author: Apirak Panatkool
+title: Online ERP for service company
+image: dooexpert@2x.png
+description: Changed the way organization work from Digitization Company to Digitalization Company which increased work flexibility and reduced waiting time.
 ---
 
-*Dec 4, 2012* - [Author](http://github.com)
 
 Once upon a time, in a village by the sea...
 
