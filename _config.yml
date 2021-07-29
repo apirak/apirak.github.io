@@ -16,5 +16,5 @@ twitter:
 sass:
   style: compressed
 
-  plugins:
+plugins:
   - jekyll-seo-tag
