@@ -7,13 +7,14 @@ description: Changed the way organization work from Digitization Company to Digi
 ---
 
 
-Once upon a time, in a village by the sea...
+H1 DooExpert, The ERP for Service Company
 
-A banana is an edible fruit – botanically a berry – produced by several kinds
-of large herbaceous flowering plants in the genus Musa.
+(ERP: Enterprise Resource Planning)
 
-In some countries, bananas used for cooking may be called "plantains",
-distinguishing them from dessert bananas. The fruit is variable in size, color,
-and firmness, but is usually elongated and curved, with soft flesh rich in
-starch covered with a rind, which may be green, yellow, red, purple, or brown
-when ripe.
+
+Digitization to Digitalization
+
+
+Key1: ยกเลิกระบบ workflow เพราะทุกคนสามารถดูเอกสารพร้อมกันได้
+Key2: ลดการควบคุมโดยระบบ แต่ตรวจสอบได้ว่ามีความเสี่ยงเกิดขึ้นที่ไหน
+Key3: ลดจำนวน Report โดยให้ผู้ใช้ออกแบบ report ได้เอง ผ่านการใช้งานประจำวัน
