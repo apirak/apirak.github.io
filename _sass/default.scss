@@ -1,13 +1,13 @@
-@import "bootstrap/bootstrap";
-@import "icon-font";
+@import 'icon-font';
 
 $backgroundColor: #ffffff;
 $bodyColor: #000000;
-$bodyFont: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+$bodyFont: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial,
+  sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 $base-shadow: 0px 0px 50px rgba(0, 0, 0, 0.15);
 
-
-html, body {
+html,
+body {
   height: 100%;
 }
 
@@ -20,7 +20,9 @@ body {
   font-family: $bodyFont;
 }
 
-a, .nav-link, .link-dark {
+a,
+.nav-link,
+.link-dark {
   text-decoration: none;
   @extend .link-dark;
 
@@ -49,8 +51,8 @@ footer {
 }
 
 .profile-page {
-  height:90%; 
-  display:flex;
+  height: 90%;
+  display: flex;
   align-items: center;
 }
 
@@ -59,8 +61,8 @@ footer {
   overflow: hidden;
   width: 320px;
   box-shadow: $base-shadow;
-  
-  @include media-breakpoint-up(md){
+
+  @include media-breakpoint-up(md) {
     width: auto;
     .profile-info {
       padding-left: 32px;
@@ -118,9 +120,10 @@ footer {
   }
 }
 
-.material-icons, .material-icons-outlined {
+.material-icons,
+.material-icons-outlined {
   font-size: 1rem;
-  vertical-align:middle;
+  vertical-align: middle;
   padding-bottom: 2px;
 }
 
@@ -128,7 +131,7 @@ footer {
   @extend .link-dark;
 }
 
-.portfolio{
+.portfolio {
   height: 100%;
 }
 
@@ -160,7 +163,7 @@ footer {
 }
 
 .post-header {
-  text-align:center;
+  text-align: center;
   margin-top: 32px;
 }
 

@@ -1,20 +1,20 @@
-title: "Apirak Panatkool"
-tagline: "UX Evangelist"
+title: 'Apirak Panatkool'
+tagline: 'UX Evangelist'
 email: apirakb@gmail.com
-image: "/assets/image/apirak@2x.jpg"
-description: >- 
- Add description here
+image: '/assets/image/apirak@2x.jpg'
+description: >-
+  Add description here
 author: Apirak Panatkool
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: '' # the subpath of your site, e.g. /blog
+url: '' # the base hostname & protocol for your site, e.g. http://example.com
+twitter_username: apirak
+github_username: apirak
 google_analytics: G-V2L7EPCY83
 
-twitter:
-  username: apirak
-  card: summary #keep this to generate a twitter share card
-
 sass:
-  style: compressed
+  sass_dir: _sass
+  style: conpressed
 
 plugins:
+  - jekyll-feed
   - jekyll-seo-tag

@@ -1,27 +1,25 @@
 <div class="container">
-    <header class="d-flex justify-content-center py-3">
-      <ul class="nav nav-pills">
-        {% for item in site.data.navbar %}
+  <header class="d-flex justify-content-center py-3">
+    <ul class="nav nav-pills">
+      {% for item in site.data.navbar %} {% if page.url == item.link %} {%
+      assign is_active = "link-secondary" %} {% else %} {% assign is_active =
+      "link-dark" %} {% endif %}
 
-            {% if page.url == item.link %}
-                {% assign is_active = "link-secondary" %}
-            {% else %}
-                {% assign is_active = "link-dark" %}
-            {% endif %}
+      <li class="nav-item">
+        <a
+          href="{{item.link}}"
+          class="nav-link {{is_active}}"
+          aria-current="page"
+        >
+          {{ item.name }} {% if page.url == item.link %}
+          <span class="visually-hidden">(current)</span>
+          {% endif %} {% if item.icon != "" %}
+          <span class="material-icons-outlined">open_in_new</span>
+          {% endif %}
+        </a>
+      </li>
 
-            <li class="nav-item">
-                <a href="{{item.link}}" class="nav-link {{is_active}}" aria-current="page">
-                    {{ item.name }}
-                    {% if page.url == item.link %}
-                        <span class="visually-hidden">(current)</span>
-                    {% endif %}
-                    {% if item.icon != "" %}
-                        <span class="material-icons-outlined">open_in_new</span>
-                    {% endif %}
-                </a>
-            </li>
-
-        {% endfor %}
-      </ul>
-    </header>
+      {% endfor %}
+    </ul>
+  </header>
 </div>
