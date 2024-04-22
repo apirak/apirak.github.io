@@ -1,0 +1,26 @@
+---
+layout: default
+title: 'Project'
+permalink: project
+---
+
+<div class="position-relative w-100 p-3 p-md-5 m-md-3 text-center">
+  <div class="mx-auto my-1">
+    <h1 class="display-4 font-weight-normal">Community Project</h1>
+    <p class="lead font-weight-normal">All fun parttime project that I contribute for communities</p>
+  </div>
+</div>
+
+<div class="container-xxl d-flex flex-column flex-md-row flex-wrap justify-content-md-center" style="gap:32px;">
+  {% for project in site.data.figma_plugin %}
+    <div class="col-12 col-md-5 col-lg-5 d-flex flex-column justify-content-center pt-5 px-4"
+        style="min-width:200px; background-color: {{project.color}};"
+        onclick="location.href='{{project.link}}';">
+      <h2 class="text-center">{{project.title}}</h2>
+      <p class="text-center w-50 mx-auto">{{project.description}}</p>
+      <div class="bg-dark box-shadow w-75 mx-auto mt-4" style="min-width: 200px;height: 150px; border-radius: 21px 21px 0 0;">
+        <img src="{{project.image}}" />
+      </div>
+    </div>
+  {% endfor %}
+</div>

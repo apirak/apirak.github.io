@@ -11,10 +11,12 @@
           class="nav-link {{is_active}}"
           aria-current="page"
         >
-          {{ item.name }} {% if page.url == item.link %}
-          <span class="visually-hidden">(current)</span>
-          {% endif %} {% if item.icon != "" %}
-          <span class="material-icons-outlined">open_in_new</span>
+          {% if item.icon != "" %}
+            <i class="bi {{item.icon}}"></i>
+          {% endif %}
+          {{ item.name }}
+          {% if page.url == item.link %}
+            <span class="visually-hidden">(current)</span>
           {% endif %}
         </a>
       </li>

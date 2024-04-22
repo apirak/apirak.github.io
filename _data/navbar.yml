@@ -1,12 +1,12 @@
 - name: Home
   link: /
   icon: ''
-- name: Portfolio
-  link: /portfolio
+- name: Project
+  link: /project
   icon: ''
-- name: Blog
+- name: Medium
   link: http://apirak.medium.com/
-  icon: open_in_new
+  icon: bi-medium
 - name: Contact
   link: /contact
   icon: ''
