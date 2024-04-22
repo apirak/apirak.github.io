@@ -3,18 +3,18 @@
   link: 'https://www.figma.com/community/plugin/1090193516013501637/visible-property-2'
   image: 'p_visible_property.png'
   color: '#f0f7ff'
-- title: Doo Expert but A
-  description: Anatomy is the best of all time before the man do it
+- title: 'Visible Property #1'
+  description: Figma plugin to help you maintain design system
+  link: 'https://www.figma.com/community/plugin/821936177363215072/visible-property'
+  image: 'p_visible_property_1.png'
+  color: '#fafafa'
+- title: 'Swap Themes'
+  description: Figma plugin to help you test color themes without mode
   link: 'https://www.figma.com/community/plugin/1184882309602509318/swap-themes'
-  image: 'p_visible_property.png'
+  image: 'p_swap_theme.png'
   color: '#f4ffdb'
-- title: Doo Expert but A
-  description: Anatomy is the best of all time before the man do it
-  link: /
-  image: ''
-  color: '#f4ffdb'
-- title: Doo Expert but A
-  description: Anatomy is the best of all time before the man do it
-  link: /
-  image: ''
-  color: '#f4ffdb'
+- title: 'RSCSS (TH)'
+  description: Translate RSCSS Document to Thai language
+  link: 'https://rscss.apirak.com/'
+  image: 'p_rscss.png'
+  color: '#fff1fe'
