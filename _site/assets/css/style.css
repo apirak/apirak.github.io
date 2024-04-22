@@ -242,4 +242,8 @@ footer {
   margin-top: 32px;
 }
 
+.clickable {
+  cursor: pointer;
+}
+
 /*# sourceMappingURL=style.css.map */
