@@ -181,12 +181,25 @@ a:hover .material-icons,
   color: #0d6efd;
 }
 
-.link-secondary {
-  font-weight: bold;
-  color: #000000;
+.selected {
+  position: relative;
+  display: inline-block;
 }
 
-a.link-secondary:hover {
+.selected::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0px; /* Adjust position as needed */
+  transform: translateX(-50%);
+  width: 4px; /* Dot size */
+  height: 4px; /* Dot size */
+  background-color: black; /* Dot color */
+  border-radius: 50%; /* Makes the dot circular */
+  display: block;
+}
+
+a.selected:hover {
   color: #000000;
 }
 
