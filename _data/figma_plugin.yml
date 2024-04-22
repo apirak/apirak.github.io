@@ -1,30 +1,30 @@
 - title: 'Visible Property #2'
-  description: The second version of Figma plugin to help you update document for your design system
+  description: The second version of a Figma plugin designed to streamline your design system documentation updates.
   link: 'https://www.figma.com/community/plugin/1090193516013501637/visible-property-2'
   image: 'p_visible_property.png'
   color: '#f0f7ff'
 - title: 'Visible Property #1'
-  description: The first version of Figma plugin that help you update anotation in your design
+  description: The initial iteration of a Figma plugin that simplifies annotation management within your designs.
   link: 'https://www.figma.com/community/plugin/821936177363215072/visible-property'
   image: 'p_visible_property_1.png'
   color: '#fafafa'
 - title: 'Swap Themes'
-  description: Figma plugin to help you test color themes with style (without mode)
+  description: A Figma plugin for testing color themes with style (without mode)
   link: 'https://www.figma.com/community/plugin/1184882309602509318/swap-themes'
   image: 'p_swap_theme.png'
-  color: '#f4ffdb'
+  color: '#f5fcf6'
 - title: 'RSCSS (TH)'
   description: The way to use large scale SCSS without cracy (Translate from <a href="https://ricostacruz.com/rscss/">Ricstacruz</a>)
   link: 'https://rscss.apirak.com/'
   image: 'p_rscss.png'
   color: '#fff1fe'
 - title: 'Sushi Design System'
-  description: Backend Component for Stock Exchange of Thailand. Github <a href="https://github.com/sushiui/sushi?tab=readme-ov-file">HTML</a> and <a href="https://github.com/sushiui/sushi-react?tab=readme-ov-file">React</a>
+  description: Backend components for the Stock Exchange of Thailand. Available on GitHub in <a href="https://github.com/sushiui/sushi?tab=readme-ov-file">HTML</a> and <a href="https://github.com/sushiui/sushi-react?tab=readme-ov-file">React</a>.
   link: 'https://sushiui.github.io/sushi/'
   image: 'p_sushi.png'
   color: '#fffbf0'
 - title: 'Online Course'
-  description: Work with Skooldio to create UX, UI, IA and A11Y course
+  description: Collaborated with Skooldio to create comprehensive courses covering UX, UI, IA, and A11Y.
   link: 'https://www.skooldio.com/instructors/apirak-panatkool'
   image: 'p_online_course.png'
-  color: '#d2fbed'
+  color: '#f1faff'
