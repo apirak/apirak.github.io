@@ -190,12 +190,12 @@ a:hover .material-icons,
   content: "";
   position: absolute;
   left: 50%;
-  bottom: 0px; /* Adjust position as needed */
+  bottom: 0px;
   transform: translateX(-50%);
-  width: 4px; /* Dot size */
-  height: 4px; /* Dot size */
-  background-color: black; /* Dot color */
-  border-radius: 50%; /* Makes the dot circular */
+  width: 4px;
+  height: 4px;
+  background-color: #0d6efd;
+  border-radius: 50%;
   display: block;
 }
 
