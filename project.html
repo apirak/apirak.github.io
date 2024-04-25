@@ -26,6 +26,8 @@ permalink: project
     class="col-12 col-md-5 col-lg-5 d-flex flex-column justify-content-center pt-5 px-4 rounded-1 clickable"
     style="min-width:200px; background-color: {{project.color}};"
     onclick="location.href='{{project.link}}';"
+    role="button"
+    aria-label="View project details"
   >
     <h2 class="text-center">{{project.title}}</h2>
     <p class="text-center w-75 mx-auto mt-2 flex-fill">
@@ -40,7 +42,7 @@ permalink: project
         border-radius: 4px 4px 0 0;
       "
     >
-      <img class="w-100" src="assets/image/{{project.image}}" />
+      <img class="w-100" src="assets/image/{{project.image}}" aria-hidden="true"/>
     </div>
   </div>
   {% endfor %}
