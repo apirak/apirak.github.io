@@ -1,7 +1,7 @@
 - name: Home
   link: /
   icon: ''
-- name: Project
+- name: Projects
   link: /project
   icon: ''
 - name: Medium
