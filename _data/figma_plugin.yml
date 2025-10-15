@@ -60,3 +60,19 @@
   link: 'https://www.marketingoops.com/pr-news/book-design-mobile-app/'
   image: 'p_design_moble_app.png'
   color: '#fafafa'
+
+- title: 'DealDroid'
+  description: >
+    AI chatbot for online sellers. Handles customer inquiries 24/7 and drives sales.
+    No coding required - train AI like train human admin.
+  link: 'https://dealdroid.net'
+  image: 'p_dealdroid.png'
+  color: '#f0fff4'
+
+- title: 'NinjaLingo'
+  description: >
+    Smart language learning app using spaced repetition and AI. Learn efficiently
+    by practicing words at the perfect moment when memory fades.
+  link: 'https://ninjalingo.com/home'
+  image: 'p_ninjalingo.png'
+  color: '#fff5f5'
