@@ -1,7 +1,10 @@
 - title: 'Visible Property #2'
   description:
     The second version of a Figma plugin designed to streamline your design
-    system documentation updates.
+    system documentation updates. 
+    <a href="https://www.figma.com/community/plugin/1090193516013501637/visible-property-2">
+      (1k Users)
+    </a> 
   link: 'https://www.figma.com/community/plugin/1090193516013501637/visible-property-2'
   image: 'p_visible_property.png'
   color: '#f0f7ff'
@@ -9,11 +12,18 @@
   description:
     The initial iteration of a Figma plugin that simplifies annotation
     management within your designs.
+    <a href="https://www.figma.com/community/plugin/821936177363215072/visible-property">
+      (1.2k Users)
+    </a>
   link: 'https://www.figma.com/community/plugin/821936177363215072/visible-property'
   image: 'p_visible_property_1.png'
   color: '#fafafa'
 - title: 'Swap Themes'
-  description: A Figma plugin for testing color themes with style (without mode)
+  description: A Figma plugin for testing color themes with style (without mode) 
+    switching. 
+    <a href="https://www.figma.com/community/plugin/1184882309602509318/swap-themes">
+      (11k Users)
+    </a>
   link: 'https://www.figma.com/community/plugin/1184882309602509318/swap-themes'
   image: 'p_swap_theme.png'
   color: '#f5fcf6'
