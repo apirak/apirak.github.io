@@ -1,0 +1,11 @@
+- title: 'URL to QR Code'
+  description: A simple tool to generate QR codes from URLs with customizable foreground and background colors. Download as PNG or SVG.
+  link: 'https://happy.dealdroid.net/url2qrcode'
+  image: 'mini_url2qrcode.jpeg'
+  color: '#f0f9ff'
+
+- title: 'ChatHead'
+  description: A reflection on modern existence and identity through sharing. "I share, therefore I am."
+  link: 'https://chathead.dealdroid.net/'
+  image: 'mini_chathead.jpeg'
+  color: '#fef2f2'

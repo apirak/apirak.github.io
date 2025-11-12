@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 'Project'
+title: "Project"
 permalink: project
 ---
 
@@ -42,7 +42,54 @@ permalink: project
         border-radius: 4px 4px 0 0;
       "
     >
-      <img class="w-100" src="assets/image/{{project.image}}" aria-hidden="true"/>
+      <img
+        class="w-100"
+        src="assets/image/{{project.image}}"
+        aria-hidden="true"
+      />
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+<div
+  class="position-relative w-75 p-3 p-md-5 m-md-3 text-center"
+  style="max-width: 650px"
+>
+  <div class="mx-auto my-1">
+    <h1 class="display-4 font-weight-normal">Mini Projects</h1>
+    <p class="lead font-weight-normal pt-3">
+      Small experiments and tools built for fun and learning
+    </p>
+  </div>
+</div>
+
+<div
+  class="container-xxl d-flex flex-column align-items-center mb-5"
+  style="gap: 16px; max-width: 800px"
+>
+  {% for project in site.data.mini_project %}
+  <div
+    class="col-12 d-flex flex-row align-items-center p-3 rounded-1 clickable"
+    style="background-color: {{project.color}};"
+    onclick="location.href='{{project.link}}';"
+    role="button"
+    aria-label="View project details"
+  >
+    <div
+      class="flex-shrink-0 bg-dark box-shadow"
+      style="
+        width: 120px;
+        height: 80px;
+        overflow: hidden;
+        border-radius: 4px;
+      "
+    >
+      <img class="w-100 h-100" src="assets/image/{{project.image}}" style="object-fit: cover;" aria-hidden="true"/>
+    </div>
+    <div class="flex-fill ps-4">
+      <h4 class="mb-2">{{project.title}}</h4>
+      <p class="mb-0" style="font-size: 0.9rem;">{{project.description}}</p>
     </div>
   </div>
   {% endfor %}
