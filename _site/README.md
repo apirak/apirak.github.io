@@ -1,21 +1,23 @@
 # apirak.github.io
+
 for apirak.com home page
 
-# Install rbenv
-$ brew install rbenv
+## Install rbenv
 
-# Install ruby & gem
+`$ brew install rbenv`
 
-rbenv install 3.3.6
+## Install ruby & gem
 
-# Install bundler 
+`$ rbenv install 3.3.6`
 
-gem install bundler
+## Install bundler 
 
-# Install lib
+`$ gem install bundler`
 
-bundler install
+## Install lib
 
-# Run Jekyll
+`$ bundler install`
 
-$ bundle exec jekyll serve
+## Run Jekyll
+
+`$ bundle exec jekyll serve`

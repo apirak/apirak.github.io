@@ -4,6 +4,9 @@
 - name: Projects
   link: /project
   icon: ''
+- name: Blog
+  link: /blog
+  icon: ''
 - name: Medium
   link: http://apirak.medium.com/
   icon: bi-medium
