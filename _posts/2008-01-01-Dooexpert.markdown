@@ -21,5 +21,3 @@ Report โดยให้ผู้ใช้ออกแบบ report ได้�
 Kye2:
 
 ![Screenshot 2568-10-13 at 09.15.58.jpg]({{site.baseurl}}/_posts/Screenshot 2568-10-13 at 09.15.58.jpg)
-
-
