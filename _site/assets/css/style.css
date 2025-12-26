@@ -477,6 +477,18 @@
   color: #999;
 }
 
+#cusdis_thread {
+  margin-top: 64px;
+  padding-top: 48px;
+  border-top: 1px solid #e5e5e5;
+}
+#cusdis_thread iframe {
+  width: 100% !important;
+  border: none !important;
+  overflow: hidden !important;
+  min-height: 400px;
+}
+
 @media (max-width: 768px) {
   .blog-listing {
     padding: 40px 20px;

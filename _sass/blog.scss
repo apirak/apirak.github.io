@@ -365,6 +365,20 @@
   }
 }
 
+// Cusdis Comment Section
+#cusdis_thread {
+  margin-top: 64px;
+  padding-top: 48px;
+  border-top: 1px solid #e5e5e5;
+  
+  iframe {
+    width: 100% !important;
+    border: none !important;
+    overflow: hidden !important;
+    min-height: 400px;
+  }
+}
+
 // Responsive Design
 @media (max-width: 768px) {
   .blog-listing {

@@ -22,4 +22,16 @@ layout: default
   <div class="blog-post-content">
     {{ content }}
   </div>
+  {%- if page.id -%}
+  <!--Every article has a id, but special pages don't unless you set manually.
+  This prevents Cusdis from appear everywhere-->
+  <div id="cusdis_thread"
+    data-host="https://cusdis.com"
+    data-app-id="4c466483-f554-485a-96a3-ef13dc168f20"
+    data-page-id="{{ page.id }}"
+    data-page-url="{{ site.url }}{{ page.baseurl }}{{ page.url }}"
+    data-page-title="{{ page.title }}"
+  ></div>
+  <script defer src="https://cusdis.com/js/cusdis.es.js"></script>
+  {%- endif -%}
 </article>
