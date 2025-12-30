@@ -6,10 +6,12 @@ description: >-
   Add description here
 author: Apirak Panatkool
 baseurl: '' # the subpath of your site, e.g. /blog
-url: '' # the base hostname & protocol for your site, e.g. http://example.com
+url: 'https://apirak.com' # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: apirak
 github_username: apirak
-google_analytics: G-V2L7EPCY83
+
+google_analytics:
+  id: G-V2L7EPCY83
 
 sass:
   sass_dir: _sass
