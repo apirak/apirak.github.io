@@ -1,7 +1,8 @@
 title: 'Apirak Panatkool'
 tagline: 'UX Evangelist'
 email: apirakb@gmail.com
-image: '/assets/image/apirak@2x.jpg'
+image: 'https://apirak.com/assets/image/apirak@2x.jpg'
+logo: 'https://apirak.com/assets/image/apirak@2x.jpg'
 description: >-
   Add description here
 author: Apirak Panatkool
