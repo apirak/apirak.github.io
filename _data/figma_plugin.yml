@@ -7,7 +7,7 @@
     </a> 
   link: 'https://www.figma.com/community/plugin/1090193516013501637/visible-property-2'
   image: 'p_visible_property.png'
-  color: '#f0f7ff'
+  color: 'blue'
 - title: 'Visible Property #1'
   description:
     The initial iteration of a Figma plugin that simplifies annotation
@@ -17,7 +17,7 @@
     </a>
   link: 'https://www.figma.com/community/plugin/821936177363215072/visible-property'
   image: 'p_visible_property_1.png'
-  color: '#fafafa'
+  color: 'gray'
 - title: 'Swap Themes'
   description: A Figma plugin for testing color themes with style (without mode) 
     switching. 
@@ -26,13 +26,13 @@
     </a>
   link: 'https://www.figma.com/community/plugin/1184882309602509318/swap-themes'
   image: 'p_swap_theme.png'
-  color: '#f5fcf6'
+  color: 'green'
 - title: 'RSCSS (TH)'
   description: The way to use large scale SCSS without cracy (Translate from <a
     href="https://ricostacruz.com/rscss/">Ricstacruz</a>)
   link: 'https://rscss.apirak.com/'
   image: 'p_rscss.png'
-  color: '#fff1fe'
+  color: 'pink'
 
 - title: 'Sushi Design System'
   description:
@@ -41,7 +41,7 @@
     and <a href="https://github.com/sushiui/sushi-react?tab=readme-ov-file">React</a>.
   link: 'https://sushiui.github.io/sushi/'
   image: 'p_sushi.png'
-  color: '#fffbf0'
+  color: 'cream'
 
 - title: 'Online Course'
   description: >
@@ -52,7 +52,7 @@
     <a href="https://www.skooldio.com/courses/intro-to-web-accessibility">A11Y.</a>
   link: 'https://www.skooldio.com/instructors/apirak-panatkool'
   image: 'p_online_course.png'
-  color: '#f1faff'
+  color: 'blue'
 
 - title: 'UX Thailand'
   description: >
@@ -61,7 +61,7 @@
     and explore resources on our <a href="https://uxth.co">Website</a>.
   link: 'https://www.facebook.com/groups/uxthailand'
   image: 'p_uxth.png'
-  color: '#f0f7ff'
+  color: 'blue'
 
 - title: 'Design Mobile App Book'
   description: >
@@ -69,7 +69,7 @@
     usability, and project planning.
   link: 'https://www.marketingoops.com/pr-news/book-design-mobile-app/'
   image: 'p_design_moble_app.png'
-  color: '#fafafa'
+  color: 'gray'
 
 - title: 'DealDroid'
   description: >
@@ -77,7 +77,7 @@
     No coding required - train AI like train human admin.
   link: 'https://dealdroid.net'
   image: 'p_dealdroid.png'
-  color: '#f0fff4'
+  color: 'green'
 
 - title: 'NinjaLingo'
   description: >
@@ -85,4 +85,4 @@
     by practicing words at the perfect moment when memory fades.
   link: 'https://ninjalingo.com/home'
   image: 'p_ninjalingo.png'
-  color: '#fff5f5'
+  color: 'pink'

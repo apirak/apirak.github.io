@@ -3,9 +3,9 @@
     <ul class="nav nav-pills">
       {% for item in site.data.navbar %}
         {% if page.url == item.link %}
-          {% assign is_active = "link-dark selected" %}
+          {% assign is_active = "nav-link-custom selected" %}
         {% else %}
-          {% assign is_active = "link-dark" %}
+          {% assign is_active = "nav-link-custom" %}
         {% endif %}
         <li class="nav-item">
           <a

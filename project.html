@@ -23,8 +23,7 @@ permalink: project
 >
   {% for project in site.data.figma_plugin %}
   <div
-    class="col-12 col-md-5 col-lg-5 d-flex flex-column justify-content-center pt-5 px-4 rounded-1 clickable"
-    style="min-width:200px; background-color: {{project.color}};"
+    class="col-12 col-md-5 col-lg-5 d-flex flex-column justify-content-center pt-5 px-4 rounded-1 clickable project-card card-{{project.color}}"
     onclick="location.href='{{project.link}}';"
     role="button"
     aria-label="View project details"
@@ -70,8 +69,7 @@ permalink: project
 >
   {% for project in site.data.mini_project %}
   <div
-    class="col-12 d-flex flex-row align-items-center p-3 rounded-1 clickable"
-    style="background-color: {{project.color}};"
+    class="col-12 d-flex flex-row align-items-center p-3 rounded-1 clickable project-card card-{{project.color}}"
     onclick="location.href='{{project.link}}';"
     role="button"
     aria-label="View project details"

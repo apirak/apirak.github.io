@@ -1,0 +1,78 @@
+// ============================================
+// Design Tokens - Light & Dark Mode
+// ============================================
+
+:root {
+  // ==========================================
+  // Light Mode Tokens (Default)
+  // ==========================================
+  
+  // --- Core Background Colors ---
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f8f9fa;
+  --color-surface: #ffffff;
+  
+  // --- Text Colors ---
+  --color-text-primary: #000000;
+  --color-text-secondary: #212529;
+  --color-text-muted: #666666;
+  --color-text-footer: #616161;
+  
+  // --- Border & Divider ---
+  --color-border-light: #e5e5e5;
+  --color-border-medium: #bbbbbb;
+  --color-border-card: #eeeeee;
+  
+  // --- Interactive States ---
+  --color-link-primary: #0d6efd;
+  --color-link-hover: #0d6efd;
+  --color-selected-dot: #0d6efd;
+  
+  // --- Shadows ---
+  --shadow-base: 0px 0px 50px rgba(0, 0, 0, 0.15);
+  --shadow-card: 0px 2px 8px rgba(0, 0, 0, 0.08);
+  
+  // --- Project Card Colors (Pastel Tints) ---
+  --color-card-blue: #f0f7ff;
+  --color-card-gray: #fafafa;
+  --color-card-green: #f5fcf6;
+  --color-card-pink: #fff1fe;
+  --color-card-cream: #fffbf0;
+}
+
+// ==========================================
+// Dark Mode Tokens
+// ==========================================
+[data-theme="dark"] {
+  // --- Core Background Colors ---
+  --color-bg-primary: #0d1117;
+  --color-bg-secondary: #161b22;
+  --color-surface: #1c2128;
+  
+  // --- Text Colors ---
+  --color-text-primary: #e6edf3;
+  --color-text-secondary: #c9d1d9;
+  --color-text-muted: #8b949e;
+  --color-text-footer: #8b949e;
+  
+  // --- Border & Divider ---
+  --color-border-light: #30363d;
+  --color-border-medium: #484f58;
+  --color-border-card: #30363d;
+  
+  // --- Interactive States ---
+  --color-link-primary: #58a6ff;
+  --color-link-hover: #58a6ff;
+  --color-selected-dot: #58a6ff;
+  
+  // --- Shadows ---
+  --shadow-base: 0px 0px 50px rgba(0, 0, 0, 0.5);
+  --shadow-card: 0px 2px 8px rgba(0, 0, 0, 0.3);
+  
+  // --- Project Card Colors (Dark Tints) ---
+  --color-card-blue: #1a2332;     // Dark blue-gray (from #f0f7ff)
+  --color-card-gray: #24252a;     // Dark neutral gray (from #fafafa)
+  --color-card-green: #1a2e1f;    // Dark green-gray (from #f5fcf6)
+  --color-card-pink: #2e1a2d;     // Dark magenta-gray (from #fff1fe)
+  --color-card-cream: #2e2a1a;    // Dark warm-gray (from #fffbf0)
+}
