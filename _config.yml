@@ -10,6 +10,7 @@ baseurl: '' # the subpath of your site, e.g. /blog
 url: 'https://apirak.com' # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: apirak
 github_username: apirak
+future: true
 
 google_analytics:
   id: G-V2L7EPCY83
