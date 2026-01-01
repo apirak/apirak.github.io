@@ -43,6 +43,9 @@
     // Also set color-scheme for better OS integration (helps with form controls, scrollbars)
     document.documentElement.style.colorScheme = actualTheme;
     
+    // Update Cusdis theme
+    updateCusdisTheme(actualTheme);
+    
     // Save to localStorage only when user explicitly chooses
     try {
       localStorage.setItem(THEME_STORAGE_KEY, theme);
@@ -53,6 +56,21 @@
     
     // Update toggle button state
     updateToggleButton(theme);
+  }
+
+  // Update Cusdis theme
+  function updateCusdisTheme(theme) {
+    const cusdisThread = document.querySelector('#cusdis_thread');
+    if (cusdisThread) {
+      cusdisThread.setAttribute('data-theme', theme);
+      console.log('💬 Updated Cusdis data-theme attribute to:', theme);
+      
+      // Use official Cusdis API to update theme
+      if (window.CUSDIS && typeof window.CUSDIS.setTheme === 'function') {
+        window.CUSDIS.setTheme(theme);
+        console.log('💬 Called CUSDIS.setTheme():', theme);
+      }
+    }
   }
 
   // Update toggle button icon and aria-label
