@@ -2,7 +2,7 @@
 layout: post
 author: Apirak Panatkool
 title: "เมื่อ \"ตำแหน่ง\" ไม่สำคัญเท่า \"สิ่งที่เราส่งมอบ\" - Role Expectation"
-image: blog/rr_all.png
+image: /assets/image/blog/rr_all.png
 description: >-
   งาน 80% ไม่ต้องเก่งเทพก็ทำได้ - มาคุยเรื่อง Role Expectation ว่าทำไมการส่งมอบคุณค่าถึงสำคัญกว่าตำแหน่งงาน
 ---

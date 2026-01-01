@@ -2,7 +2,7 @@
 layout: post
 author: Apirak Panatkool
 title: "เมื่อ AI พูดไม่ฟัง: แยกให้ออกระหว่าง \"ดื้อ\" (Stubborn) กับ \"มั่ว\" (Hallucinate)" 
-image: blog/ai_stubborn.png
+image: /assets/image/blog/ai_stubborn.png
 description: >-
   ทำไม AI ถึงไม่ยอมทำตามคำสั่ง? เจาะลึกความแตกต่างระหว่าง AI "ดื้อ" (Stubbornness) กับ AI "มั่ว" (Hallucination) พร้อมเทคนิค Prompt Engineering แบบ Conversation Designer ที่ใช้ได้จริง
 ---

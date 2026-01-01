@@ -2,7 +2,7 @@
 layout: post
 author: Apirak Panatkool
 title: ทำงานให้สนุกขึ้น ด้วยการแบ่งงานตาม Value ไม่ได้แบ่งตาม Tech Stack
-image: blog/vertical_slide.png
+image: /assets/image/blog/vertical_slide.png
 description: >-
   ลองเปลี่ยนวิธีคิดครับ เลิกแบ่งงานตามความถนัด (Tech Stack) แล้วมาแบ่งตาม "คุณค่าที่ส่งมอบ" (Value) กันดูครับ
 ---
