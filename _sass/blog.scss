@@ -118,6 +118,8 @@
   max-width: 720px;
   margin: 0 auto;
   padding: 60px 20px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .blog-post-header {
@@ -163,6 +165,8 @@
   font-size: 1.25rem;
   line-height: 1.75;
   color: var(--color-text-secondary);
+  overflow-x: hidden;
+  word-break: break-word;
   
   // Typography for better readability (Medium-style)
   h1, h2, h3, h4, h5, h6 {
@@ -239,10 +243,14 @@
     border-radius: 8px;
     overflow-x: auto;
     margin: 32px 0;
+    white-space: pre-wrap;
+    word-break: break-word;
     
     code {
       background-color: transparent;
       padding: 0;
+      white-space: pre-wrap;
+      word-break: break-word;
     }
   }
   
@@ -405,11 +413,36 @@
   }
   
   .blog-post {
-    padding: 40px 20px;
+    padding: 40px 16px;
+    max-width: 100%;
   }
   
   .blog-post-content {
-    font-size: 1.125rem;
+    font-size: 1rem;
+    line-height: 1.7;
+    
+    h1 {
+      font-size: 1.75rem;
+      margin-top: 48px;
+    }
+    
+    h2 {
+      font-size: 1.5rem;
+    }
+    
+    h3 {
+      font-size: 1.25rem;
+    }
+    
+    pre {
+      padding: 16px;
+      margin: 24px -16px;
+      border-radius: 0;
+    }
+    
+    code {
+      word-break: break-all;
+    }
   }
   
   .latest-blog-section {
