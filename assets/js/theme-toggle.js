@@ -19,9 +19,15 @@
 
   // Get system preference
   function getSystemTheme() {
-    const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    console.log('🎨 System theme:', isDark ? 'dark' : 'light');
-    return isDark ? THEMES.DARK : THEMES.LIGHT;
+    // Check for dark mode preference
+    if (window.matchMedia) {
+      const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      console.log('🎨 System theme detected:', isDark ? 'dark' : 'light');
+      return isDark ? THEMES.DARK : THEMES.LIGHT;
+    }
+    // Fallback if matchMedia not supported
+    console.log('⚠️  matchMedia not supported, defaulting to light');
+    return THEMES.LIGHT;
   }
 
   // Apply theme to document
@@ -29,10 +35,15 @@
     currentMode = theme; // Store current mode
     const actualTheme = theme === THEMES.AUTO ? getSystemTheme() : theme;
     console.log('🌓 Applying theme:', theme, '→ actual:', actualTheme);
+    
+    // Apply to both html element and body for better compatibility
     document.documentElement.setAttribute('data-theme', actualTheme);
     document.documentElement.setAttribute('data-bs-theme', actualTheme);
     
-    // Save to localStorage
+    // Also set color-scheme for better OS integration (helps with form controls, scrollbars)
+    document.documentElement.style.colorScheme = actualTheme;
+    
+    // Save to localStorage only when user explicitly chooses
     try {
       localStorage.setItem(THEME_STORAGE_KEY, theme);
       console.log('💾 Saved to localStorage:', theme);
@@ -110,10 +121,10 @@
       console.warn('⚠️  Could not read localStorage:', e);
     }
     
-    // Use saved theme if available, otherwise use system preference
+    // Use saved theme if available, otherwise default to AUTO (system preference)
     const themeToApply = savedTheme && Object.values(THEMES).includes(savedTheme) 
       ? savedTheme 
-      : getSystemTheme();
+      : THEMES.AUTO;
     
     console.log('💡 Using theme:', themeToApply);
     applyTheme(themeToApply);
