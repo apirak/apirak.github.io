@@ -12,6 +12,26 @@ twitter_username: apirak
 github_username: apirak
 future: true
 
+# Social sharing settings (Open Graph & Twitter Cards)
+twitter:
+  username: apirak
+  card: summary_large_image
+
+facebook:
+  publisher: https://www.facebook.com/apirak
+
+social:
+  name: Apirak Panatkool
+  links:
+    - https://www.facebook.com/apirak
+    - https://www.linkedin.com/in/apirak
+    - https://twitter.com/apirak
+    - https://github.com/apirak
+
+# SEO settings
+lang: th-TH
+locale: th_TH
+
 google_analytics:
   id: G-V2L7EPCY83
 
