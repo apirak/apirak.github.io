@@ -4,7 +4,7 @@ email: apirakb@gmail.com
 image: 'https://apirak.com/assets/image/apirak@2x.jpg'
 logo: 'https://apirak.com/assets/image/apirak@2x.jpg'
 description: >-
-  Add description here
+  Product Design Specialist and UX Designer from Thailand. Founder of UX Thailand community (49K+ members), Figma Plugin Developer (13K+ users), Skooldio Instructor, and AI Product creator (DealDroid.net). Sharing insights on Agile UX, Product Development, and Design-to-Code practices.
 author: Apirak Panatkool
 baseurl: '' # the subpath of your site, e.g. /blog
 url: 'https://apirak.com' # the base hostname & protocol for your site, e.g. http://example.com
@@ -22,3 +22,4 @@ sass:
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-sitemap
