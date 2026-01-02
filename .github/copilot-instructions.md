@@ -89,6 +89,104 @@ Each project card has custom background color defined in YAML data (`color: '#f0
 - Uses `jekyll-seo-tag` plugin (add `{% seo %}` in layouts)
 - Google Analytics ID: `G-V2L7EPCY83` in `_config.yml`
 
+## SEO Strategy & Content Goals
+
+### Target Audience & Brand Positioning
+**Primary Goal**: Establish Apirak Panatkool as a recognized Product Design Specialist and Influencer in Thailand
+- **Target Audience**: Thai UX/Product Design community professionals
+- **Brand Identity**: Personal Brand Hub combining UX + AI + Teaching expertise
+- **Authority**: Founder of UX Thailand (49K+ members), Friend of Figma Bangkok, Speaker at conferences
+
+### Key Credentials & Projects
+- **Community Leadership**: Founded and manages UX Thailand (largest Thai UX community)
+- **Education**: Instructor at Skooldio (UX, UI, IA, A11Y courses)
+- **Product**: Founder of DealDroid.net (AI chatbot for online sellers)
+- **Figma Ecosystem**: Published 3 Figma plugins (13K+ total users)
+- **Publications**: Book author "Design Mobile App", Medium contributor
+
+### SEO Target Keywords (Priority Order)
+**Primary Keywords:**
+- `apirak` - Personal brand searches
+- `ux thailand` - Community association
+- `ux designer thailand` - Professional positioning
+
+**Secondary Keywords:**
+- `product design thailand`
+- `figma plugin thailand`
+- `agile ux`
+- `conversation design`
+- `ai product design`
+- `software design thailand`
+
+**Long-tail Keywords (Content Strategy):**
+- `ux designer เขียน code` - Planned 5-part series
+- `vertical slicing agile`
+- `ux evangelist thailand`
+
+### Content Strategy
+**Blog Focus Areas:**
+1. **How-to & Tutorials** - Practical guides for UX practitioners
+2. **Insights from Experience** - Real-world product development lessons
+3. **UX-to-Code Bridge** - Helping designers understand development (signature series)
+4. **Agile & Product Development** - Team collaboration methodologies
+
+**Publishing Cadence:** Weekly blog posts (minimum 1 per week)
+
+**Content Objectives:**
+- Educate UX community in Thailand
+- Encourage designers to learn coding fundamentals
+- Build thought leadership in Product Design + AI intersection
+- Drive traffic to Skooldio courses and DealDroid.net
+
+### Social Sharing Strategy
+**Target Platforms:** Facebook, LinkedIn, Twitter
+**Sharing Goals:**
+- Enable easy social sharing with proper Open Graph tags
+- Create shareable insights for UX Thailand community
+- Build viral potential through valuable, actionable content
+
+### SEO Technical Requirements
+**Must-Have Elements:**
+1. **Schema.org JSON-LD** for:
+   - Person schema (Apirak's profile with all credentials)
+   - Article schema (blog posts with author, publisher info)
+   - Organization schema (UX Thailand founder connection)
+
+2. **Meta Tags & Descriptions:**
+   - Unique, keyword-rich descriptions for every page
+   - Proper title tags following pattern: `[Page Title] - Apirak Panatkool | UX Thailand`
+   - Open Graph tags for social previews
+
+3. **Content Structure:**
+   - Blog posts must include categories/tags
+   - Alt text for all images (accessibility + SEO)
+   - Internal linking to related content
+   - External links to credible sources
+
+4. **Technical SEO:**
+   - XML sitemap generation (jekyll-sitemap)
+   - Fast page load (optimize images)
+   - Mobile-responsive (Bootstrap 5 handles this)
+   - Clean URL structure
+
+### Writing Guidelines for AI Assistance
+When creating or reviewing blog content:
+- **Tone**: Professional yet approachable, Thai language with occasional English technical terms
+- **Length**: 1,500-3,000 words for SEO optimization
+- **Structure**: Use H2/H3 headings with target keywords
+- **Examples**: Real-world scenarios from software development experience
+- **CTAs**: Encourage community participation, course enrollment, or DealDroid trials
+- **Links**: Include internal links to related posts, external links to UX Thailand, Skooldio, DealDroid
+
+### Cross-Promotion Strategy
+**Properties to Link:**
+- Main site: apirak.com (this site)
+- DealDroid: dealdroid.net
+- UX Thailand: facebook.com/groups/uxthailand & uxth.co
+- Skooldio: skooldio.com/instructors/apirak-panatkool
+- Figma Plugins: Community plugin pages
+- Medium: Legacy blog posts for backlinks
+
 ## Common Pitfalls
 
 - Don't edit files in `_site/` - they're auto-generated
