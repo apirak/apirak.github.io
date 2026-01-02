@@ -5,6 +5,8 @@ title: "เมื่อ AI พูดไม่ฟัง: แยกให้ออ
 image: /assets/image/blog/ai_stubborn_2.png
 description: >-
   ทำไม AI ถึงไม่ยอมทำตามคำสั่ง? เจาะลึกความแตกต่างระหว่าง AI "ดื้อ" (Stubbornness) กับ AI "มั่ว" (Hallucination) พร้อมเทคนิค Prompt Engineering แบบ Conversation Designer ที่ใช้ได้จริง
+categories: [AI]
+tags: [Conversation Design, Prompt Engineering, DealDroid, LLM]
 ---
 
 จากบทความที่แล้ว เราคุยกันเรื่อง **[Conversation Design พื้นฐาน](https://apirak.medium.com/conversation-desing-%E0%B8%A8%E0%B8%B2%E0%B8%AA%E0%B8%95%E0%B8%A3%E0%B9%8C%E0%B8%97%E0%B8%B5%E0%B9%88-ux-%E0%B9%83%E0%B8%99%E0%B8%A2%E0%B8%B8%E0%B8%84-ai-%E0%B8%95%E0%B9%89%E0%B8%AD%E0%B8%87%E0%B8%A3%E0%B8%B9%E0%B9%89-306286629b03)** (ที่ยกตัวอย่างร้านอาหารหมา) และก่อนหน้านั้นเราเจาะลึกเรื่อง **[Guardrails](https://apirak.medium.com/conversation-design-%E0%B8%AA%E0%B8%B3%E0%B8%AB%E0%B8%A3%E0%B8%B1%E0%B8%9A%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B9%80%E0%B8%82%E0%B8%B5%E0%B8%A2%E0%B8%99-chatbot-%E0%B9%83%E0%B8%99%E0%B8%A2%E0%B8%B8%E0%B8%84-llm-0a2e9bdb25ea)** เพื่อป้องกัน AI มั่วข้อมูล

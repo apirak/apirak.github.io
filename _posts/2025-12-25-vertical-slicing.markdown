@@ -5,6 +5,8 @@ title: ทำงานให้สนุกขึ้น ด้วยการแ
 image: /assets/image/blog/vertical_slide.png
 description: >-
   ลองเปลี่ยนวิธีคิดครับ เลิกแบ่งงานตามความถนัด (Tech Stack) แล้วมาแบ่งตาม "คุณค่าที่ส่งมอบ" (Value) กันดูครับ
+categories: [Product Development]
+tags: [Agile, Vertical Slicing, Teamwork, Software Development]
 ---
 
 ช่วงนี้ทำงานเป็นตัวกลางระหว่าง UX, Business และ Dev บ่อยมากขึ้นเลยอยากยกเรื่องการแบ่งงานขึ้นมาเล่า โดยเฉพาะในยุคนี้การแบ่งงานแบบตาม Value มันยิ่งสะดวกขึ้นไปอีก
