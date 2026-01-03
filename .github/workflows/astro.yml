@@ -39,7 +39,6 @@ jobs:
       
       - name: Install dependencies
         run: pnpm install
-        working-directory: ./astro
       
       - name: Setup Pages
         id: pages
@@ -52,8 +51,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./astro/dist
-
+          path: .
   deploy:
     environment:
       name: github-pages
