@@ -43,33 +43,6 @@ const navItems = [
             );
           })
         }
-
-        <!-- Theme Toggle Button -->
-        <li class="ml-2">
-          <button
-            id="theme-toggle"
-            class="px-3 py-2 transition-colors nav-link-custom"
-            aria-label="Toggle theme"
-            title="Toggle theme"
-            data-theme="auto"
-          >
-            <Icon
-              name="fa6-solid:sun"
-              class="w-4 h-4 theme-icon"
-              data-theme-icon="light"
-            />
-            <Icon
-              name="fa6-solid:moon"
-              class="w-4 h-4 theme-icon"
-              data-theme-icon="dark"
-            />
-            <Icon
-              name="fa6-solid:circle-half-stroke"
-              class="w-4 h-4 theme-icon"
-              data-theme-icon="auto"
-            />
-          </button>
-        </li>
       </ul>
     </nav>
   </div>
@@ -106,16 +79,5 @@ const navItems = [
 
   a.selected:hover {
     color: var(--color-text-primary);
-  }
-
-  /* Theme toggle icons */
-  .theme-icon {
-    display: none;
-  }
-
-  #theme-toggle[data-theme="light"] .theme-icon[data-theme-icon="light"],
-  #theme-toggle[data-theme="dark"] .theme-icon[data-theme-icon="dark"],
-  #theme-toggle[data-theme="auto"] .theme-icon[data-theme-icon="auto"] {
-    display: inline-block;
   }
 </style>

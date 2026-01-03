@@ -24,7 +24,7 @@ const sortedPosts = allPosts.sort(
   <div class="container mx-auto px-4 py-12">
     <div class="max-w-6xl mx-auto">
       <!-- Intro Section -->
-      <header class="mb-16">
+      <header class="mb-24 mt-16">
         <h1
           class="text-4xl md:text-5xl font-bold mb-4"
           style="color: var(--color-text-primary);"
@@ -35,26 +35,22 @@ const sortedPosts = allPosts.sort(
           class="text-xl md:text-2xl max-w-3xl leading-relaxed"
           style="font-family: 'Caveat', cursive; color: var(--color-text-secondary);"
         >
-          I believe the best way to learn is to teach, and the best way to grow
-          is to share. This is where I explore design, development, and the
-          messy, beautiful process of building things that work.
+          I believe the best way to learn is to teach, and <span
+            class="px-2 py-1 rounded"
+            style="background-color: var(--color-card-yellow);"
+            >the best way to grow is to share.</span
+          > This is why I explore design, development, and the messy, beautiful process
+          of building things that work.
         </p>
       </header>
 
       <!-- Blog Section -->
       <section>
-        <h2
-          class="text-3xl font-bold mb-8"
-          style="color: var(--color-text-primary);"
-        >
-          Latest Posts
-        </h2>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
           {
             sortedPosts.map((post) => (
               <article
-                class="blog-card border rounded-lg overflow-hidden transition-all hover:border-opacity-100"
+                class="blog-card border rounded-lg overflow-hidden transition-all hover:border-opacity-100 flex flex-col"
                 style="border-color: var(--color-border-light);"
               >
                 {post.data.image && (
@@ -68,7 +64,7 @@ const sortedPosts = allPosts.sort(
                     </div>
                   </a>
                 )}
-                <div class="p-5">
+                <div class="p-5 flex flex-col flex-1">
                   <h2 class="text-md font-bold mb-3" style="line-height: 1.4;">
                     <a
                       href={`/blog/${post.slug}`}
@@ -100,7 +96,7 @@ const sortedPosts = allPosts.sort(
                   )}
 
                   <div
-                    class="flex items-center justify-between text-sm"
+                    class="flex items-center justify-between text-sm mt-auto"
                     style="color: var(--color-text-muted);"
                   >
                     <time datetime={post.data.pubDate.toISOString()}>

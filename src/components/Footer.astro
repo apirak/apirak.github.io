@@ -1,11 +1,54 @@
 ---
+import { Icon } from "astro-icon/components";
+
 const currentYear = new Date().getFullYear();
 ---
 
 <footer class="py-8 mt-auto">
-  <div class="container mx-auto px-4 text-center" style="color: var(--color-text-muted);">
-    <p class="text-sm">
-      © {currentYear} Apirak Panatkool. All rights reserved.
-    </p>
+  <div class="container mx-auto px-4">
+    <div class="flex flex-col items-center gap-4">
+      <!-- Theme Toggle Button -->
+      <button
+        id="theme-toggle"
+        class="px-3 py-2 transition-colors hover:opacity-70"
+        aria-label="Toggle theme"
+        title="Toggle theme"
+        data-theme="auto"
+        style="color: var(--color-text-muted);"
+      >
+        <Icon
+          name="fa6-solid:sun"
+          class="w-4 h-4 theme-icon"
+          data-theme-icon="light"
+        />
+        <Icon
+          name="fa6-solid:moon"
+          class="w-4 h-4 theme-icon"
+          data-theme-icon="dark"
+        />
+        <Icon
+          name="fa6-solid:circle-half-stroke"
+          class="w-4 h-4 theme-icon"
+          data-theme-icon="auto"
+        />
+      </button>
+
+      <p class="text-sm" style="color: var(--color-text-muted);">
+        © {currentYear} Apirak Panatkool. All rights reserved.
+      </p>
+    </div>
   </div>
 </footer>
+
+<style>
+  /* Theme toggle icons */
+  .theme-icon {
+    display: none;
+  }
+
+  #theme-toggle[data-theme="light"] .theme-icon[data-theme-icon="light"],
+  #theme-toggle[data-theme="dark"] .theme-icon[data-theme-icon="dark"],
+  #theme-toggle[data-theme="auto"] .theme-icon[data-theme-icon="auto"] {
+    display: inline-block;
+  }
+</style>
