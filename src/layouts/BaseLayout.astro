@@ -8,10 +8,10 @@ interface Props {
 const { title, description, image } = Astro.props;
 const fullTitle = `${title} - Apirak Panatkool`;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const socialImage = image || 'https://apirak.com/assets/image/apirak@2x.jpg';
+const socialImage = image || "https://apirak.com/assets/image/apirak@2x.jpg";
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="th">
   <head>
     <meta charset="UTF-8" />
@@ -21,11 +21,19 @@ const socialImage = image || 'https://apirak.com/assets/image/apirak@2x.jpg';
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="generator" content={Astro.generator} />
-    
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
+
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
-    
+
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL} />
@@ -33,7 +41,7 @@ const socialImage = image || 'https://apirak.com/assets/image/apirak@2x.jpg';
     <meta property="og:description" content={description} />
     <meta property="og:image" content={socialImage} />
     <meta property="og:locale" content="th_TH" />
-    
+
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={canonicalURL} />
@@ -42,27 +50,33 @@ const socialImage = image || 'https://apirak.com/assets/image/apirak@2x.jpg';
     <meta property="twitter:image" content={socialImage} />
     <meta property="twitter:site" content="@apirak" />
     <meta property="twitter:creator" content="@apirak" />
-    
+
     <!-- Schema.org JSON-LD -->
     <slot name="schema" />
-    
+
     <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-V2L7EPCY83"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-V2L7EPCY83"
+    ></script>
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-V2L7EPCY83');
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-V2L7EPCY83");
     </script>
-    
+
     <!-- Prevent flash of wrong theme -->
     <script is:inline>
-      (function() {
-        const theme = localStorage.getItem('theme-preference') || 'auto';
-        const actualTheme = theme === 'auto' 
-          ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
-          : theme;
-        document.documentElement.setAttribute('data-theme', actualTheme);
+      (function () {
+        const theme = localStorage.getItem("theme-preference") || "auto";
+        const actualTheme =
+          theme === "auto"
+            ? window.matchMedia("(prefers-color-scheme: dark)").matches
+              ? "dark"
+              : "light"
+            : theme;
+        document.documentElement.setAttribute("data-theme", actualTheme);
         document.documentElement.style.colorScheme = actualTheme;
       })();
     </script>
@@ -73,7 +87,7 @@ const socialImage = image || 'https://apirak.com/assets/image/apirak@2x.jpg';
       <slot />
     </main>
     <slot name="footer" />
-    
+
     <script src="../scripts/theme-toggle.ts"></script>
   </body>
 </html>
