@@ -1,93 +1,133 @@
 # Copilot Instructions for apirak.github.io
 
 ## Project Overview
-This is a Jekyll-based portfolio website (v4.3.3) for Apirak Panatkool hosted on GitHub Pages. It showcases projects, Figma plugins, and blog posts with a Bootstrap 5 frontend.
+This is an Astro 5.16.6 portfolio website for Apirak Panatkool hosted on GitHub Pages. It showcases projects, Figma plugins, and blog posts with Tailwind CSS 4.1 for styling.
 
 ## Architecture
 
-### Core Jekyll Structure
-- **Layouts**: `_layouts/default.html` (master template), `_layouts/post.html` (blog posts)
-- **Includes**: `_includes/navbar.html`, `_includes/footer.html` (reusable components)
-- **Data**: `_data/*.yml` files drive dynamic content (navbar, projects)
-- **Posts**: Blog content in `_posts/YYYY-MM-DD-title.markdown` format
-- **Compiled**: `_site/` directory (git-ignored build output)
+### Core Astro Structure
+- **Layouts**: `src/layouts/BaseLayout.astro` (master layout with SEO), `src/layouts/BlogLayout.astro` (blog posts)
+- **Components**: `src/components/Navbar.astro`, `Footer.astro`, `SchemaPerson.astro`, `SchemaArticle.astro`
+- **Pages**: File-based routing in `src/pages/` (index.astro, projects.astro, contact.astro, blog/[...slug].astro)
+- **Content Collections**: `src/content/blog/*.md` with type-safe schema validation
+- **Data**: `src/data/*.ts` files (TypeScript) for projects and navigation
+- **Build Output**: `dist/` directory (git-ignored)
 
 ### Styling Approach
-- Bootstrap 5.3.3 via CDN (not npm)
-- Custom SCSS in `assets/css/style.scss` with Jekyll front matter `---`
-- SCSS partials in `_sass/` imported without extensions: `@import "icon-font";`
-- Variables defined in main SCSS: `$backgroundColor`, `$bodyColor`, `$bodyFont`, `$base-shadow`
+- Tailwind CSS 4.1 via @tailwindcss/vite plugin
+- CSS variables for theming in `src/styles/global.css`
+- Light/dark mode toggle with localStorage persistence
+- Custom design tokens: `--color-text-primary`, `--color-bg-primary`, `--shadow-card`, etc.
+- Theme script runs inline to prevent flash of wrong theme
 
 ### Data-Driven Content
-Project pages use YAML data files instead of hardcoded HTML:
-- `_data/figma_plugin.yml` - Major projects with color, image, link, description
-- `_data/mini_project.yml` - Smaller experiments
-- `_data/navbar.yml` - Navigation items with icon support (Bootstrap Icons)
+Projects use TypeScript data files:
+- `src/data/projects.ts` - Main projects and mini projects with type definitions
+- `src/data/navbar.ts` - Navigation items with external link flags
 
-Loop pattern in templates:
-```liquid
-{% for project in site.data.figma_plugin %}
-  <div style="background-color: {{project.color}};">
-    <h2>{{project.title}}</h2>
-    <img src="assets/image/{{project.image}}">
+Pattern in pages:
+```typescript
+import { mainProjects, miniProjects } from '../data/projects';
+
+{mainProjects.map((project) => (
+  <div style={`background-color: ${project.color};`}>
+    <h2>{project.title}</h2>
+    <img src={`/assets/image/${project.image}`} />
   </div>
-{% endfor %}
+))}
+```
+
+### Content Collections
+Blog posts use Astro Content Collections with schema validation:
+```typescript
+// src/content/config.ts
+const blog = defineCollection({
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    pubDate: z.date(),
+    categories: z.array(z.string()),
+    image: z.string().optional(),
+  })
+});
 ```
 
 ## Development Workflow
 
 ### Local Development
 ```bash
-# First time setup (uses rbenv for Ruby version management)
-brew install rbenv
-rbenv install 3.3.6
-gem install bundler
-bundle install
+# First time setup
+npm install -g pnpm
+pnpm install
 
 # Run development server
-bundle exec jekyll serve
+pnpm dev
+# Visit http://localhost:4321
+
+# Build for production
+pnpm build
+
+# Preview production build
+pnpm preview
 ```
 
-**Critical**: Always use `bundle exec jekyll serve`, not just `jekyll serve`
+**Critical**: Development server runs on port 4321 (not 4000 like Jekyll)
 
 ### Adding Content
-- **New project**: Add entry to `_data/figma_plugin.yml` or `_data/mini_project.yml`
-- **New blog post**: Create `_posts/YYYY-MM-DD-title.markdown` with front matter:
-  ```yaml
+- **New blog post**: Create `src/content/blog/YYYY-MM-DD-title.md`:
+  ```markdown
   ---
-  layout: post
-  author: Apirak Panatkool
-  title: Post Title
-  image: filename.png
-  description: >-
-    Multi-line description
+  title: 'Post Title'
+  description: 'Brief description for SEO'
+  pubDate: 2026-01-03
+  categories: ['Product Development', 'UX Design']
+  image: '/assets/image/blog/cover.png'
   ---
+  
+  Your markdown content...
   ```
-- **Images**: Place in `assets/image/` and reference as `assets/image/filename.png`
+- **New project**: Add entry to `src/data/projects.ts` in `mainProjects` or `miniProjects` array
+- **Images**: Place in `public/assets/image/` and reference as `/assets/image/filename.png`
 
 ## Project-Specific Conventions
 
-### Front Matter
-- All HTML pages require YAML front matter (even if just `---\n---`)
-- SCSS files need empty front matter to be processed: `assets/css/style.scss` starts with `---`
+### Component Props
+Astro components use TypeScript interfaces for props:
+```typescript
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+}
+```
 
 ### Navigation State
-Active nav items use conditional class in `_includes/navbar.html`:
-```liquid
-{% if page.url == item.link %}
-  {% assign is_active = "link-dark selected" %}
-{% endif %}
+Active nav items determined by comparing `pathname` with `href`:
+```typescript
+const isActive = pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href));
 ```
 
 ### Image Naming
 Retina images use `@2x` suffix: `apirak@2x.jpg`, `certificate@2x.png`
 
-### Color Theming
-Each project card has custom background color defined in YAML data (`color: '#f0f7ff'`)
+### Project Card Images
+- Max height: 150px
+- Object-fit: cover
+- Object-position: top
+- Prevents nested anchor tags by using `<div onclick>` instead of `<a>` wrapper
+
+### Icons
+- Uses `astro-icon` package with Font Awesome 6
+- Icon sets: `fa6-solid`, `fa6-brands`
+- Install icon sets: `pnpm add @iconify-json/fa6-solid @iconify-json/fa6-brands`
+- Usage: `<Icon name="fa6-solid:envelope" class="w-6 h-6" />`
 
 ### SEO & Analytics
-- Uses `jekyll-seo-tag` plugin (add `{% seo %}` in layouts)
-- Google Analytics ID: `G-V2L7EPCY83` in `_config.yml`
+- Schema.org JSON-LD via `<SchemaPerson />` and `<SchemaArticle />` components
+- Open Graph and Twitter Card meta tags in `BaseLayout.astro`
+- Google Analytics ID: `G-V2L7EPCY83` configured in BaseLayout
+- Sitemap auto-generated via `@astrojs/sitemap`
+- RSS feed at `/rss.xml`
 
 ## SEO Strategy & Content Goals
 
@@ -164,9 +204,9 @@ Each project card has custom background color defined in YAML data (`color: '#f0
    - External links to credible sources
 
 4. **Technical SEO:**
-   - XML sitemap generation (jekyll-sitemap)
+   - XML sitemap generation (@astrojs/sitemap)
    - Fast page load (optimize images)
-   - Mobile-responsive (Bootstrap 5 handles this)
+   - Mobile-responsive (Tailwind CSS handles this)
    - Clean URL structure
 
 ### Writing Guidelines for AI Assistance
@@ -189,15 +229,19 @@ When creating or reviewing blog content:
 
 ## Common Pitfalls
 
-- Don't edit files in `_site/` - they're auto-generated
-- Don't forget `bundle exec` prefix when running Jekyll commands
-- SCSS imports in `_sass/` directory must be imported without file extension
-- Links to posts use Jekyll permalink format: `/YYYY/MM/DD/title.html`
-- Bootstrap loaded via CDN, not package.json - don't try to npm install it
+- Don't edit files in `dist/` - they're auto-generated
+- Don't forget to run `pnpm install` after pulling changes
+- Image paths in public/ don't need `/public` prefix - use `/assets/image/filename.png`
+- Content collection files must have frontmatter matching the schema in `src/content/config.ts`
+- Development server runs on port 4321, not 4000
 
 ## Key Files to Reference
 
-- `_config.yml` - Site-wide settings, plugins, author info
+- `astro.config.mjs` - Site-wide settings, integrations, site URL
+- `src/layouts/BaseLayout.astro` - Master template with SEO meta tags
+- `src/content/config.ts` - Content collection schemas
+- `src/data/projects.ts` - Project data with TypeScript types
+- `src/styles/global.css` - CSS variables and global styles
 - `_layouts/default.html` - Master template structure (shows Bootstrap CDN pattern)
 - `_data/navbar.yml` - Example of data-driven navigation
 - `project.html` - Example of looping through data files with Liquid

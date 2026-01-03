@@ -1,0 +1,89 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import SchemaPerson from '../components/SchemaPerson.astro';
+import { getCollection } from 'astro:content';
+import '../styles/global.css';
+
+const pageTitle = 'Blog';
+const pageDescription = 'UX Design and Product Development insights by Apirak Panatkool. Learn about Agile UX, Vertical Slicing, UX-to-Code practices, AI in Product Design, and practical tutorials for UX Designers in Thailand.';
+
+// Get all blog posts sorted by date (newest first)
+const allPosts = await getCollection('blog');
+const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <SchemaPerson slot="schema" />
+  <Navbar slot="navbar" />
+  
+  <div class="container mx-auto px-4 py-12">
+    <div class="max-w-6xl mx-auto">
+      <header class="mb-12 text-center">
+        <h1 class="text-5xl font-bold mb-4" style="color: var(--color-text-primary);">Blog</h1>
+        <p class="text-xl max-w-2xl mx-auto" style="color: var(--color-text-secondary);">
+          Thoughts on design, development, and building better experiences
+        </p>
+      </header>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {sortedPosts.map((post) => (
+          <article class="blog-card border rounded-lg overflow-hidden transition-all hover:border-opacity-100" 
+                   style="border-color: var(--color-border-light);">
+            {post.data.image && (
+              <a href={`/blog/${post.slug}`} class="block">
+                <div class="aspect-video overflow-hidden">
+                  <img 
+                    src={post.data.image} 
+                    alt={post.data.title}
+                    class="w-full h-full object-cover transition-transform hover:scale-105"
+                  />
+                </div>
+              </a>
+            )}
+            <div class="p-5">
+              <h2 class="text-xl font-bold mb-3 leading-tight">
+                <a href={`/blog/${post.slug}`} class="hover:underline" style="color: var(--color-text-primary);">
+                  {post.data.title}
+                </a>
+              </h2>
+              <p class="mb-4 text-sm line-clamp-3" style="color: var(--color-text-muted);">
+                {post.data.description}
+              </p>
+              
+              {/* Tags */}
+              {post.data.tags.length > 0 && (
+                <div class="flex flex-wrap gap-2 mb-4">
+                  {post.data.tags.slice(0, 3).map((tag) => (
+                    <span 
+                      class="px-2 py-1 text-xs rounded-full"
+                      style="background-color: var(--color-bg-secondary); color: var(--color-text-muted);"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              )}
+              
+              <div class="flex items-center justify-between text-sm" style="color: var(--color-text-muted);">
+                <time datetime={post.data.pubDate.toISOString()}>
+                  {post.data.pubDate.toLocaleDateString('th-TH', { 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                  })}
+                </time>
+                <a href={`/blog/${post.slug}`} class="font-medium" style="color: var(--color-link-primary);">
+                  Read more →
+                </a>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <Footer slot="footer" />
+</BaseLayout>

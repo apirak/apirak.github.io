@@ -1,0 +1,90 @@
+---
+import { Icon } from 'astro-icon/components';
+
+const { pathname } = Astro.url;
+
+const navItems = [
+  { name: 'Home', href: '/', external: false },
+  { name: 'Projects', href: '/projects', external: false },
+  { name: 'Medium', href: 'https://apirak.medium.com', external: true },
+  { name: 'Contact', href: '/contact', external: false },
+];
+---
+
+<header class="" style="border-color: var(--color-border-light);">
+  <div class="container mx-auto px-4">
+    <nav class="flex justify-center py-3">
+      <ul class="flex flex-wrap justify-center items-center gap-1">
+        {navItems.map((item) => {
+          const isActive = pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href));
+          
+          return (
+            <li>
+              <a
+                href={item.href}
+                class={`nav-link-custom px-4 py-2 transition-colors inline-flex items-center gap-1 ${isActive ? 'selected' : ''}`}
+                target={item.external ? '_blank' : undefined}
+                rel={item.external ? 'noopener noreferrer' : undefined}
+              >
+                <span class="inline-flex items-center gap-1">
+                  {item.name}
+                  {item.external && (
+                    <Icon name="fa6-solid:arrow-up-right-from-square" class="w-3 h-3 inline-block" />
+                  )}
+                </span>
+              </a>
+            </li>
+          );
+        })}
+        
+        <!-- Theme Toggle Button -->
+        <li class="ml-2">
+          <button
+            id="theme-toggle"
+            class="px-3 py-2 transition-colors text-xl nav-link-custom"
+            aria-label="Toggle theme"
+            title="Toggle theme"
+          >
+            ◐
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  header {
+    background-color: var(--color-bg-primary);
+  }
+  
+  .nav-link-custom {
+    color: var(--color-text-primary);
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .nav-link-custom:hover {
+    color: var(--color-link-hover);
+  }
+  
+  .selected::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0px;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 4px;
+    background-color: var(--color-selected-dot);
+    border-radius: 50%;
+    display: block;
+  }
+  
+  a.selected:hover {
+    color: var(--color-text-primary);
+  }
+</style>
+
+
