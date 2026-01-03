@@ -1,67 +1,87 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Navbar from '../components/Navbar.astro';
-import Footer from '../components/Footer.astro';
-import SchemaPerson from '../components/SchemaPerson.astro';
-import { figmaPlugins, miniProjects } from '../data/projects';
-import '../styles/global.css';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import SchemaPerson from "../components/SchemaPerson.astro";
+import { figmaPlugins, miniProjects } from "../data/projects";
+import "../styles/global.css";
 
-const pageTitle = 'Projects';
-const pageDescription = 'Portfolio of Apirak Panatkool - Figma Plugins (13K+ users), Design Systems, AI Products (DealDroid.net), and UX/UI courses at Skooldio. Showcasing Product Design and Software Development projects in Thailand.';
+const pageTitle = "Projects";
+const pageDescription =
+  "Portfolio of Apirak Panatkool - Figma Plugins (13K+ users), Design Systems, AI Products (DealDroid.net), and UX/UI courses at Skooldio. Showcasing Product Design and Software Development projects in Thailand.";
 
 const colorMap = {
-  blue: 'var(--color-card-blue)',
-  gray: 'var(--color-card-gray)',
-  green: 'var(--color-card-green)',
-  pink: 'var(--color-card-pink)',
-  cream: 'var(--color-card-cream)',
-  yellow: 'var(--color-card-yellow)'
+  blue: "var(--color-card-blue)",
+  gray: "var(--color-card-gray)",
+  green: "var(--color-card-green)",
+  pink: "var(--color-card-pink)",
+  cream: "var(--color-card-cream)",
+  yellow: "var(--color-card-yellow)",
 };
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
   <SchemaPerson slot="schema" />
   <Navbar slot="navbar" />
-  
+
   <div class="container mx-auto px-4 py-12">
     {/* Proud Highlights Section */}
     <div class="text-center mb-12 max-w-2xl mx-auto">
-      <h1 class="text-5xl font-bold mb-4" style="color: var(--color-text-primary);">Proud Highlights</h1>
+      <h1
+        class="text-5xl font-bold mb-4"
+        style="color: var(--color-text-primary);"
+      >
+        Proud Highlights
+      </h1>
       <p class="text-xl" style="color: var(--color-text-secondary);">
-        I'm passionate about innovating so more people can turn their dreams of a better world into action ✨
+        I'm passionate about innovating so more people can turn their dreams of
+        a better world into action ✨
       </p>
     </div>
 
     {/* Main Projects Grid */}
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20 max-w-6xl mx-auto">
-      {figmaPlugins.map((project) => (
-        <div 
-          class="project-card rounded-lg pt-8 px-8 pb-0 flex flex-col items-center transition-all hover:scale-105 hover:shadow-xl"
-          style={`background-color: ${colorMap[project.color]};`}
-          onclick={`window.open('${project.link}', '_blank')`}
-        >
-          <h2 class="text-2xl font-bold text-center mb-4" style="color: var(--color-text-primary);">
-            {project.title}
-          </h2>
-          <p 
-            class="text-center mb-6 flex-1" 
-            style="color: var(--color-text-secondary);"
-            set:html={project.description}
-          />
-          <div class="w-3/4 rounded-t overflow-hidden project-image-container" style="box-shadow: var(--shadow-card);">
-            <img 
-              src={`/assets/image/${project.image}`}
-              alt={project.title}
-              class="w-full h-auto project-image"
+      {
+        figmaPlugins.map((project) => (
+          <div
+            class="project-card rounded-lg pt-8 px-8 pb-0 flex flex-col items-center transition-all hover:shadow-xl"
+            style={`background-color: ${colorMap[project.color]};`}
+            onclick={`window.open('${project.link}', '_blank')`}
+          >
+            <h2
+              class="text-2xl font-bold text-center mb-4"
+              style="color: var(--color-text-primary);"
+            >
+              {project.title}
+            </h2>
+            <p
+              class="text-center mb-6 flex-1"
+              style="color: var(--color-text-secondary);"
+              set:html={project.description}
             />
+            <div
+              class="w-3/4 rounded-t overflow-hidden project-image-container"
+              style="box-shadow: var(--shadow-card);"
+            >
+              <img
+                src={`/assets/image/${project.image}`}
+                alt={project.title}
+                class="w-full h-auto project-image"
+              />
+            </div>
           </div>
-        </div>
-      ))}
+        ))
+      }
     </div>
 
     {/* Mini Projects Section */}
     <div class="text-center mb-12 max-w-2xl mx-auto">
-      <h1 class="text-5xl font-bold mb-4" style="color: var(--color-text-primary);">Mini Projects</h1>
+      <h1
+        class="text-5xl font-bold mb-4"
+        style="color: var(--color-text-primary);"
+      >
+        Mini Projects
+      </h1>
       <p class="text-xl" style="color: var(--color-text-secondary);">
         Small experiments and tools built for fun and learning
       </p>
@@ -69,31 +89,39 @@ const colorMap = {
 
     {/* Mini Projects List */}
     <div class="flex flex-col gap-4 max-w-3xl mx-auto">
-      {miniProjects.map((project) => (
-        <div 
-          class="mini-project-card rounded-lg p-4 flex flex-row items-center gap-4 transition-all hover:scale-[1.02] hover:shadow-lg"
-          style={`background-color: ${colorMap[project.color]};`}
-          onclick={`window.open('${project.link}', '_blank')`}
-        >
-          <div class="w-24 h-24 flex-shrink-0 rounded overflow-hidden" style="box-shadow: var(--shadow-card);">
-            <img 
-              src={`/assets/image/${project.image}`}
-              alt={project.title}
-              class="w-full h-full object-cover"
-            />
+      {
+        miniProjects.map((project) => (
+          <div
+            class="mini-project-card rounded-lg p-4 flex flex-row items-center gap-4 transition-all hover:shadow-lg"
+            style={`background-color: ${colorMap[project.color]};`}
+            onclick={`window.open('${project.link}', '_blank')`}
+          >
+            <div
+              class="w-24 h-24 flex-shrink-0 rounded overflow-hidden"
+              style="box-shadow: var(--shadow-card);"
+            >
+              <img
+                src={`/assets/image/${project.image}`}
+                alt={project.title}
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="flex-1">
+              <h3
+                class="text-xl font-bold mb-2"
+                style="color: var(--color-text-primary);"
+              >
+                {project.title}
+              </h3>
+              <p
+                class="text-sm"
+                style="color: var(--color-text-secondary);"
+                set:html={project.description}
+              />
+            </div>
           </div>
-          <div class="flex-1">
-            <h3 class="text-xl font-bold mb-2" style="color: var(--color-text-primary);">
-              {project.title}
-            </h3>
-            <p 
-              class="text-sm" 
-              style="color: var(--color-text-secondary);"
-              set:html={project.description}
-            />
-          </div>
-        </div>
-      ))}
+        ))
+      }
     </div>
   </div>
 
@@ -108,12 +136,12 @@ const colorMap = {
   .mini-project-card {
     cursor: pointer;
   }
-  
+
   .project-image-container {
     min-width: 200px;
     max-height: 150px;
   }
-  
+
   .project-image {
     object-fit: cover;
     object-position: top;

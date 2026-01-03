@@ -1,0 +1,7 @@
+{
+  // Disable specific rules
+  "MD001": false,
+
+  // Disable line length rule
+  "MD013": false
+}
