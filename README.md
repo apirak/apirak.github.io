@@ -6,7 +6,7 @@ Personal brand hub for Apirak Panatkool - Product Design Specialist, UX Thailand
 
 ## 👤 About
 
-This Jekyll-based portfolio showcases:
+This Astro-based portfolio showcases:
 - **UX/Product Design Projects** - Figma plugins with 13K+ users, Design Systems
 - **Teaching & Education** - Skooldio courses (UX, UI, IA, A11Y), Published book author
 - **AI Products** - DealDroid.net (AI chatbot for e-commerce)
@@ -16,73 +16,86 @@ This Jekyll-based portfolio showcases:
 ## 🚀 Quick Start
 
 ### Prerequisites
-- Ruby 3.3.6 (managed via rbenv)
-- Bundler
+- Node.js 20+
+- pnpm
 
 ### Installation
 
 ```bash
-# Install rbenv (if not already installed)
-brew install rbenv
-
-# Install Ruby 3.3.6
-rbenv install 3.3.6
-
-# Install Bundler
-gem install bundler
+# Install pnpm (if not already installed)
+npm install -g pnpm
 
 # Install dependencies
-bundle install
+pnpm install
 ```
 
 ### Development
 
 ```bash
 # Run local development server
-bundle exec jekyll serve
+pnpm dev
 
-# Visit http://localhost:4000
+# Visit http://localhost:4321
 ```
 
-**⚠️ Important**: Always use `bundle exec jekyll serve` (not just `jekyll serve`)
+### Build
+
+```bash
+# Build for production
+pnpm build
+
+# Preview production build
+pnpm preview
+```
 
 ## 📁 Project Structure
 
 ```
-├── _config.yml              # Site configuration
-├── _layouts/                # Page templates
-│   ├── default.html         # Master layout
-│   └── post.html           # Blog post layout
-├── _includes/               # Reusable components
-│   ├── navbar.html
-│   └── footer.html
-├── _data/                   # Data files (YAML)
-│   ├── figma_plugin.yml    # Projects showcase
-│   ├── mini_project.yml    # Side projects
-│   └── navbar.yml          # Navigation items
-├── _posts/                  # Blog posts (Markdown)
-├── _sass/                   # SCSS partials
-├── assets/
-│   ├── css/                # Compiled CSS
-│   ├── image/              # Images & media
-│   └── js/                 # JavaScript files
-└── _site/                   # Generated site (git-ignored)
+├── astro.config.mjs         # Astro configuration
+├── src/
+│   ├── layouts/             # Page layouts
+│   │   ├── BaseLayout.astro # Master layout with SEO
+│   │   └── BlogLayout.astro # Blog post layout
+│   ├── components/          # Reusable components
+│   │   ├── Navbar.astro
+│   │   ├── Footer.astro
+│   │   ├── SchemaPerson.astro
+│   │   └── SchemaArticle.astro
+│   ├── pages/               # File-based routing
+│   │   ├── index.astro      # Blog homepage
+│   │   ├── projects.astro   # Projects showcase
+│   │   ├── contact.astro    # Profile/contact
+│   │   └── blog/            # Blog posts
+│   │       └── [...slug].astro
+│   ├── content/             # Content collections
+│   │   ├── config.ts        # Collection schemas
+│   │   └── blog/            # Blog markdown files
+│   ├── data/                # Data files (TypeScript)
+│   │   ├── projects.ts      # Projects data
+│   │   └── navbar.ts        # Navigation items
+│   └── styles/              # Global styles
+│       └── global.css       # CSS variables & base styles
+├── public/                  # Static assets
+│   ├── assets/
+│   │   └── image/          # Images & media
+│   ├── favicon.ico
+│   └── robots.txt
+└── dist/                    # Build output (git-ignored)
 ```
 
 ## ✍️ Adding Content
 
 ### New Blog Post
 
-Create `_posts/YYYY-MM-DD-title.markdown`:
+Create `src/content/blog/YYYY-MM-DD-title.md`:
 
-```yaml
+```markdown
 ---
-layout: post
-author: Apirak Panatkool
-title: Your Post Title
-image: /assets/image/blog/cover.png
-description: >-
-  Brief description for SEO
+title: 'Your Post Title'
+description: 'Brief description for SEO'
+pubDate: 2026-01-03
+categories: ['Product Development', 'UX Design']
+image: '/assets/image/blog/cover.png'
 ---
 
 Your markdown content here...
@@ -90,32 +103,36 @@ Your markdown content here...
 
 ### New Project
 
-Add entry to `_data/figma_plugin.yml`:
+Add entry to `src/data/projects.ts`:
 
-```yaml
-- title: 'Project Name'
-  description: Project description with <a href="url">links</a>
-  link: 'https://project-url.com'
-  image: 'project-image.png'
-  color: 'blue'  # or: gray, green, pink, cream
+```typescript
+{
+  title: 'Project Name',
+  description: 'Project description with <a href="url">links</a>',
+  link: 'https://project-url.com',
+  image: 'project-image.png',
+  color: '#f0f7ff'
+}
+```
 ```
 
 ## 🎨 Tech Stack
 
-- **Static Site Generator**: Jekyll 4.3.3
-- **CSS Framework**: Bootstrap 5.3.3 (via CDN)
-- **Icons**: Bootstrap Icons
-- **Styling**: SCSS with custom design tokens
+- **Framework**: Astro 5.16.6 (SSG)
+- **CSS**: Tailwind CSS 4.1
+- **Icons**: astro-icon with Font Awesome 6
+- **Styling**: CSS variables for theming (light/dark mode)
 - **Analytics**: Google Analytics (G-V2L7EPCY83)
 - **Hosting**: GitHub Pages
 
 ## 🔧 Key Features
 
-- ✅ Responsive design (mobile-first)
-- ✅ Dark/light theme toggle
-- ✅ SEO optimized (jekyll-seo-tag)
-- ✅ RSS feed (jekyll-feed)
-- ✅ Data-driven content (YAML)
+- ✅ Responsive design (mobile-first with Tailwind)
+- ✅ Dark/light theme toggle with persistence
+- ✅ SEO optimized (Schema.org JSON-LD)
+- ✅ RSS feed & sitemap
+- ✅ Content collections for type-safe blog posts
+- ✅ Medium-style typography for readability
 - ✅ Google Analytics integration
 
 ## 📊 SEO Strategy
@@ -126,6 +143,13 @@ Targeting Thai UX/Product Design community with keywords:
 - Content: Educational blog posts on UX, Product Development, and Design-to-Code
 
 See [.github/copilot-instructions.md](.github/copilot-instructions.md) for detailed SEO guidelines.
+
+## 🚢 Deployment
+
+Automatically deployed to GitHub Pages via GitHub Actions when pushing to `main` branch.
+
+The workflow builds the Astro site and deploys to `https://apirak.com`.
+
 
 ## 🤝 Connect
 

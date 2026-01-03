@@ -1,0 +1,79 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+}
+
+const { title, description, image } = Astro.props;
+const fullTitle = `${title} - Apirak Panatkool`;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const socialImage = image || 'https://apirak.com/assets/image/apirak@2x.jpg';
+---
+
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={socialImage} />
+    <meta property="og:locale" content="th_TH" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={fullTitle} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={socialImage} />
+    <meta property="twitter:site" content="@apirak" />
+    <meta property="twitter:creator" content="@apirak" />
+    
+    <!-- Schema.org JSON-LD -->
+    <slot name="schema" />
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-V2L7EPCY83"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-V2L7EPCY83');
+    </script>
+    
+    <!-- Prevent flash of wrong theme -->
+    <script is:inline>
+      (function() {
+        const theme = localStorage.getItem('theme-preference') || 'auto';
+        const actualTheme = theme === 'auto' 
+          ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+          : theme;
+        document.documentElement.setAttribute('data-theme', actualTheme);
+        document.documentElement.style.colorScheme = actualTheme;
+      })();
+    </script>
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <slot name="navbar" />
+    <main class="flex-1">
+      <slot />
+    </main>
+    <slot name="footer" />
+    
+    <script src="../scripts/theme-toggle.ts"></script>
+  </body>
+</html>

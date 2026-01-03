@@ -1,0 +1,54 @@
+---
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Apirak Panatkool",
+  "url": "https://apirak.com",
+  "image": "https://apirak.com/assets/image/apirak@2x.jpg",
+  "jobTitle": "Product Design Specialist",
+  "description": "Product Design Specialist and UX Designer from Thailand. Founder of UX Thailand community (49K+ members), Figma Plugin Developer (13K+ users), Skooldio Instructor, and AI Product creator (DealDroid.net). Sharing insights on Agile UX, Product Development, and Design-to-Code practices.",
+  "email": "apirakb@gmail.com",
+  "sameAs": [
+    "https://www.facebook.com/apirak",
+    "https://www.linkedin.com/in/apirak",
+    "https://twitter.com/apirak",
+    "https://github.com/apirak",
+    "https://apirak.medium.com"
+  ],
+  "knowsAbout": [
+    "User Experience Design",
+    "Product Design",
+    "Agile UX",
+    "Figma Plugins",
+    "AI Product Design",
+    "Design Systems",
+    "Conversation Design",
+    "Vertical Slicing"
+  ],
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Skooldio",
+    "url": "https://www.skooldio.com/instructors/apirak-panatkool"
+  },
+  "founder": [
+    {
+      "@type": "Organization",
+      "name": "UX Thailand",
+      "url": "https://www.facebook.com/groups/uxthailand",
+      "description": "Thailand's largest UX Design community with 49K+ members",
+      "sameAs": [
+        "https://uxth.co"
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "DealDroid",
+      "url": "https://dealdroid.net",
+      "applicationCategory": "BusinessApplication",
+      "description": "AI chatbot for online sellers"
+    }
+  ]
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(personSchema)} />

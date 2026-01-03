@@ -1,0 +1,51 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  pubDate: Date;
+  url: string;
+  categories?: string[];
+}
+
+const { title, description, image, pubDate, url, categories } = Astro.props;
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": title,
+  "image": image || "https://apirak.com/assets/image/apirak@2x.jpg",
+  "datePublished": pubDate.toISOString(),
+  "dateModified": pubDate.toISOString(),
+  "author": {
+    "@type": "Person",
+    "name": "Apirak Panatkool",
+    "url": "https://apirak.com",
+    "jobTitle": "Product Design Specialist",
+    "sameAs": [
+      "https://www.facebook.com/apirak",
+      "https://www.linkedin.com/in/apirak",
+      "https://twitter.com/apirak",
+      "https://github.com/apirak"
+    ]
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Apirak Panatkool",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://apirak.com/assets/image/apirak@2x.jpg"
+    }
+  },
+  "description": description,
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": url
+  },
+  "keywords": categories?.join(', ') || "UX Design, Product Design, Agile UX, UX Designer Thailand",
+  "articleSection": categories?.[0] || "UX Design",
+  "inLanguage": "th-TH"
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
