@@ -7,10 +7,12 @@ import sitemap from '@astrojs/sitemap';
 
 import icon from 'astro-icon';
 
+import mdx from '@astrojs/mdx';
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://apirak.com',
-  integrations: [sitemap(), icon()],
+  integrations: [sitemap(), icon(), mdx()],
 
   vite: {
     plugins: [tailwindcss()]
