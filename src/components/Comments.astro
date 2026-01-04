@@ -1,0 +1,57 @@
+---
+// Giscus Comments Component
+// Requires GitHub Discussions enabled on the repository
+---
+
+<div
+  class="comments-wrapper mt-12 pt-8 border-t"
+  style="border-color: var(--color-border-light);"
+>
+  <h2 class="text-2xl font-bold mb-6" style="color: var(--color-text-primary);">
+    Comments
+  </h2>
+  <div class="giscus"></div>
+</div>
+
+<script>
+  // Function to load Giscus with current theme
+  function loadGiscus() {
+    const giscusContainer = document.querySelector(".giscus");
+    if (!giscusContainer) return;
+
+    // Clear existing comments if any
+    giscusContainer.innerHTML = "";
+
+    // Get current theme from localStorage or default to light
+    const theme = localStorage.getItem("theme") || "light";
+    const giscusTheme = theme === "dark" ? "dark" : "light";
+
+    // Create script element
+    const script = document.createElement("script");
+    script.src = "https://giscus.app/client.js";
+    script.setAttribute("data-repo", "apirak/apirak.github.io");
+    script.setAttribute("data-repo-id", "MDEwOlJlcG9zaXRvcnkzODk0Njc1MDA");
+    script.setAttribute("data-category", "General");
+    script.setAttribute("data-category-id", "DIC_kwDOFzbNbM4C0j4Y"); // TODO: Replace with actual category ID
+    script.setAttribute("data-mapping", "pathname");
+    script.setAttribute("data-strict", "0");
+    script.setAttribute("data-reactions-enabled", "1");
+    script.setAttribute("data-emit-metadata", "0");
+    script.setAttribute("data-input-position", "top");
+    script.setAttribute("data-theme", giscusTheme);
+    script.setAttribute("data-lang", "th");
+    script.setAttribute("data-loading", "lazy");
+    script.crossOrigin = "anonymous";
+    script.async = true;
+
+    giscusContainer.appendChild(script);
+  }
+
+  // Load Giscus on page load
+  loadGiscus();
+
+  // Reload Giscus when theme changes
+  document.addEventListener("themeChanged", () => {
+    loadGiscus();
+  });
+</script>

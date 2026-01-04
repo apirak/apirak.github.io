@@ -33,11 +33,17 @@ function applyTheme(theme: Theme): void {
 
   try {
     localStorage.setItem(THEME_STORAGE_KEY, theme);
+    localStorage.setItem("theme", actualTheme); // For Giscus compatibility
   } catch (e) {
     console.warn("Could not save to localStorage:", e);
   }
 
   updateToggleButton(theme);
+
+  // Notify components that theme changed
+  document.dispatchEvent(
+    new CustomEvent("themeChanged", { detail: { theme: actualTheme } })
+  );
 }
 
 // Update toggle button icon
