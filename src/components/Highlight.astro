@@ -1,0 +1,61 @@
+---
+interface Props {
+  color?: "yellow" | "green" | "blue" | "pink" | "orange";
+}
+
+const { color = "yellow" } = Astro.props;
+---
+
+<mark class={`highlight highlight-${color}`}>
+  <slot />
+</mark>
+
+<style>
+  .highlight {
+    padding: 0.125rem 0.25rem;
+    border-radius: 0.25rem;
+    font-weight: inherit;
+    line-height: 1.6;
+  }
+
+  .highlight-yellow {
+    background-color: rgba(255, 235, 59, 0.4);
+  }
+
+  .highlight-green {
+    background-color: rgba(76, 175, 80, 0.3);
+  }
+
+  .highlight-blue {
+    background-color: rgba(33, 150, 243, 0.3);
+  }
+
+  .highlight-pink {
+    background-color: rgba(233, 30, 99, 0.3);
+  }
+
+  .highlight-orange {
+    background-color: rgba(255, 152, 0, 0.3);
+  }
+
+  /* Dark mode adjustments */
+  :global(.dark) .highlight-yellow {
+    background-color: rgba(255, 235, 59, 0.25);
+  }
+
+  :global(.dark) .highlight-green {
+    background-color: rgba(76, 175, 80, 0.2);
+  }
+
+  :global(.dark) .highlight-blue {
+    background-color: rgba(33, 150, 243, 0.2);
+  }
+
+  :global(.dark) .highlight-pink {
+    background-color: rgba(233, 30, 99, 0.2);
+  }
+
+  :global(.dark) .highlight-orange {
+    background-color: rgba(255, 152, 0, 0.2);
+  }
+</style>
