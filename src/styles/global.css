@@ -95,22 +95,22 @@
     --callout-note-icon: #9ca3af;
     --callout-note-title: #f3f4f6;
 
-    --callout-tip-bg: rgba(30, 58, 138, 0.4);
+    --callout-tip-bg: rgba(23, 37, 84, 0.4);
     --callout-tip-border: #1e3a8a;
     --callout-tip-icon: #60a5fa;
     --callout-tip-title: #dbeafe;
 
-    --callout-warning-bg: rgba(113, 63, 18, 0.4);
+    --callout-warning-bg: rgba(66, 32, 6, 0.4);
     --callout-warning-border: #713f12;
     --callout-warning-icon: #facc15;
     --callout-warning-title: #fef9c3;
 
-    --callout-danger-bg: rgba(127, 29, 29, 0.4);
+    --callout-danger-bg: rgba(69, 10, 10, 0.4);
     --callout-danger-border: #7f1d1d;
     --callout-danger-icon: #f87171;
     --callout-danger-title: #fef2f2;
 
-    --callout-info-bg: rgba(22, 78, 99, 0.4);
+    --callout-info-bg: rgba(8, 51, 68, 0.4);
     --callout-info-border: #164e63;
     --callout-info-icon: #22d3ee;
     --callout-info-title: #cffafe;
