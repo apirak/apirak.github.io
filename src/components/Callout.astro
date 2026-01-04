@@ -11,42 +11,27 @@ const { type = "note", title } = Astro.props;
 const config = {
   note: {
     icon: "fa6-solid:note-sticky",
-    bgColor: "bg-gray-50 dark:bg-gray-900/30",
-    borderColor: "border-gray-300 dark:border-gray-800",
-    iconColor: "text-gray-600 dark:text-gray-400",
-    titleColor: "text-gray-900 dark:text-gray-100",
+    cssVar: "note",
     defaultTitle: "หมายเหตุ",
   },
   tip: {
     icon: "fa6-solid:lightbulb",
-    bgColor: "bg-blue-50 dark:bg-blue-950/40",
-    borderColor: "border-blue-400 dark:border-blue-900",
-    iconColor: "text-blue-600 dark:text-blue-400",
-    titleColor: "text-blue-900 dark:text-blue-100",
+    cssVar: "tip",
     defaultTitle: "เคล็ดลับ",
   },
   warning: {
     icon: "fa6-solid:triangle-exclamation",
-    bgColor: "bg-yellow-50 dark:bg-yellow-950/40",
-    borderColor: "border-yellow-400 dark:border-yellow-900",
-    iconColor: "text-yellow-600 dark:text-yellow-400",
-    titleColor: "text-yellow-900 dark:text-yellow-100",
+    cssVar: "warning",
     defaultTitle: "คำเตือน",
   },
   danger: {
     icon: "fa6-solid:circle-exclamation",
-    bgColor: "bg-red-50 dark:bg-red-950/40",
-    borderColor: "border-red-400 dark:border-red-900",
-    iconColor: "text-red-600 dark:text-red-400",
-    titleColor: "text-red-900 dark:text-red-100",
+    cssVar: "danger",
     defaultTitle: "อันตราย",
   },
   info: {
     icon: "fa6-solid:circle-info",
-    bgColor: "bg-cyan-50 dark:bg-cyan-950/40",
-    borderColor: "border-cyan-400 dark:border-cyan-900",
-    iconColor: "text-cyan-600 dark:text-cyan-400",
-    titleColor: "text-cyan-900 dark:text-cyan-100",
+    cssVar: "info",
     defaultTitle: "ข้อมูล",
   },
 };
@@ -56,15 +41,23 @@ const displayTitle = title || style.defaultTitle;
 ---
 
 <div
-  class={`callout ${style.bgColor} ${style.borderColor} border-l-4 rounded-r-lg pt-4 px-4 my-6 shadow-sm`}
+  class="callout border-l-4 rounded-r-lg pt-4 px-4 my-6 shadow-sm"
+  style={`
+    background-color: var(--callout-${style.cssVar}-bg);
+    border-color: var(--callout-${style.cssVar}-border);
+  `}
 >
   <div class="flex items-start gap-3">
     <Icon
       name={style.icon}
-      class={`${style.iconColor} w-5 h-5 shrink-0 mt-1`}
+      class="w-5 h-5 shrink-0 mt-1"
+      style={`color: var(--callout-${style.cssVar}-icon);`}
     />
     <div class="flex-1 min-w-0">
-      <p class={`${style.titleColor} font-semibold mb-1!`}>
+      <p
+        class="font-semibold mb-1!"
+        style={`color: var(--callout-${style.cssVar}-title);`}
+      >
         {displayTitle}
       </p>
       <div class="prose dark:prose-invert prose-xs max-w-none text-base">
