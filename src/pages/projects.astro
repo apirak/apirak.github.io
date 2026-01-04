@@ -44,7 +44,7 @@ const colorMap = {
       {
         figmaPlugins.map((project) => (
           <div
-            class="project-card rounded-lg pt-8 px-8 pb-0 flex flex-col items-center transition-all hover:shadow-xl"
+            class="project-card rounded-lg pt-8 px-8 pb-0 flex flex-col items-center transition-all duration-500 ease-in-out hover:shadow-md"
             style={`background-color: ${colorMap[project.color]};`}
             onclick={`window.open('${project.link}', '_blank')`}
           >
@@ -92,7 +92,7 @@ const colorMap = {
       {
         miniProjects.map((project) => (
           <div
-            class="mini-project-card rounded-lg p-4 flex flex-row items-center gap-4 transition-all hover:shadow-lg"
+            class="mini-project-card rounded-lg p-4 flex flex-row items-center gap-4 transition-all duration-500 ease-in-out hover:shadow-sm"
             style={`background-color: ${colorMap[project.color]};`}
             onclick={`window.open('${project.link}', '_blank')`}
           >
