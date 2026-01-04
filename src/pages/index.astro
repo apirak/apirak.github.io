@@ -28,6 +28,8 @@ const colorMap = {
   yellow: "var(--color-card-yellow)",
 };
 
+const emoji = "👋";
+
 const colors = ["blue", "gray", "green", "pink", "cream", "yellow"] as const;
 ---
 
@@ -47,6 +49,7 @@ const colors = ["blue", "gray", "green", "pink", "cream", "yellow"] as const;
               style="color: var(--color-text-primary);"
             >
               Hi, I'm Apirak
+              <span class="md:hidden">{emoji}</span>
             </h1>
             <p
               class="text-xl md:text-2xl leading-relaxed mb-8"
@@ -69,13 +72,13 @@ const colors = ["blue", "gray", "green", "pink", "cream", "yellow"] as const;
           </div>
 
           <!-- Right Column: Waving Hand Icon -->
-          <div class="flex items-center justify-center">
+          <div class="hidden md:flex items-center justify-center">
             <div
               class="text-9xl md:text-[12rem] select-none"
               role="img"
               aria-label="Waving hand"
             >
-              👋
+              {emoji}
             </div>
           </div>
         </div>
