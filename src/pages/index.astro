@@ -77,8 +77,8 @@ const sortedPosts = allPosts.sort(
           {
             sortedPosts.map((post, index) => (
               <article
-                class="blog-card border rounded-lg overflow-hidden transition-all hover:border-opacity-100 flex flex-col h-full"
-                style="border-color: var(--color-border-light);"
+                class="blog-card rounded-lg overflow-hidden transition-all hover:shadow-lg flex flex-col h-full"
+                style="box-shadow: var(--shadow-card);"
               >
                 {post.data.image && (
                   <a href={`/blog/${post.slug}`} class="block">
