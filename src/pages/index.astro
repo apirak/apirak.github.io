@@ -76,6 +76,7 @@ const colors = ["blue", "gray", "green", "pink", "cream", "yellow"] as const;
               alt="Waving hand"
               width={256}
               height={256}
+              loading="eager"
               class="w-64 h-64 md:w-64 md:h-64 select-none"
             />
           </div>
@@ -101,7 +102,7 @@ const colors = ["blue", "gray", "green", "pink", "cream", "yellow"] as const;
                         alt={post.data.title}
                         width={800}
                         height={450}
-                        loading={index < 6 ? "eager" : "lazy"}
+                        loading={index < 3 ? "eager" : "lazy"}
                         class="w-full h-full object-cover"
                       />
                     </div>
