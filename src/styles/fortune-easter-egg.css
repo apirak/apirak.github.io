@@ -80,6 +80,7 @@
   transition: all 0.2s ease;
   padding: 0.25rem 0.5rem;
   border-radius: 8px;
+  transform-origin: center center;
 }
 
 .fortune-modal-close:hover {

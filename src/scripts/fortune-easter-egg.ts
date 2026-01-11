@@ -626,9 +626,8 @@ class FortuneEasterEgg {
       <div class="fortune-modal-overlay"></div>
       <div class="fortune-modal-content">
         <button class="fortune-modal-close" aria-label="Close">&times;</button>
-        <div class="fortune-category">${fortune.category}</div>
+        <div class="fortune-category">คำทำนายด้าน${fortune.category}ของคุณในวันนี้</div>
         <div class="fortune-message">${fortune.message}</div>
-        <div class="fortune-emojis">${fortune.emojis.join(" ")}</div>
       </div>
     `;
 
