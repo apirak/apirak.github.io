@@ -286,6 +286,7 @@ class FortuneEasterEgg {
   private isAnimating: boolean = false;
   private cooldownEndTime: number = 0;
   private mouseDownTime: number = 0;
+  private shakeInterval: number | null = null;
   private readonly COOLDOWN_MS = 3000; // 3 seconds
   private readonly HOLD_THRESHOLD_MS = 1000; // 1 second
   private readonly QUICK_CLICK_DELAY_MS = 800; // 0.8 seconds
@@ -357,12 +358,14 @@ class FortuneEasterEgg {
 
     this.mouseDownTime = Date.now();
     this.changeFist();
+    this.startShakeAnimation();
   };
 
   private handleMouseUp = (e: MouseEvent): void => {
     e.preventDefault();
     if (this.isInCooldown() || this.isAnimating) return;
 
+    this.stopShakeAnimation();
     const holdDuration = Date.now() - this.mouseDownTime;
     this.revealFortune(holdDuration);
   };
@@ -370,6 +373,7 @@ class FortuneEasterEgg {
   private handleMouseLeave = (): void => {
     // Reset fist if mouse leaves while holding
     if (this.mouseDownTime > 0 && !this.isAnimating) {
+      this.stopShakeAnimation();
       this.resetHand();
       this.mouseDownTime = 0;
     }
@@ -380,12 +384,14 @@ class FortuneEasterEgg {
 
     this.mouseDownTime = Date.now();
     this.changeFist();
+    this.startShakeAnimation();
   };
 
   private handleTouchEnd = (e: TouchEvent): void => {
     e.preventDefault();
     if (this.isInCooldown() || this.isAnimating) return;
 
+    this.stopShakeAnimation();
     const holdDuration = Date.now() - this.mouseDownTime;
     this.revealFortune(holdDuration);
   };
@@ -393,6 +399,7 @@ class FortuneEasterEgg {
   private handleTouchCancel = (): void => {
     // Reset fist if touch is cancelled
     if (this.mouseDownTime > 0 && !this.isAnimating) {
+      this.stopShakeAnimation();
       this.resetHand();
       this.mouseDownTime = 0;
     }
@@ -403,21 +410,42 @@ class FortuneEasterEgg {
 
     this.handImage.src = this.fistSrc;
     this.handImage.style.transform = "scale(0.95)";
+  }
 
-    // Subtle shake animation
-    this.handImage.animate(
-      [
-        { transform: "scale(0.95) rotate(0deg)" },
-        { transform: "scale(0.95) rotate(-2deg)" },
-        { transform: "scale(0.95) rotate(2deg)" },
-        { transform: "scale(0.95) rotate(-2deg)" },
-        { transform: "scale(0.95) rotate(0deg)" },
-      ],
-      {
-        duration: 400,
-        easing: "ease-in-out",
-      }
-    );
+  private startShakeAnimation(): void {
+    if (!this.handImage) return;
+
+    // Start continuous shake animation
+    const shake = () => {
+      if (!this.handImage) return;
+
+      this.handImage.animate(
+        [
+          { transform: "scale(0.95) rotate(0deg)" },
+          { transform: "scale(0.95) rotate(-2deg)" },
+          { transform: "scale(0.95) rotate(2deg)" },
+          { transform: "scale(0.95) rotate(-2deg)" },
+          { transform: "scale(0.95) rotate(0deg)" },
+        ],
+        {
+          duration: 400,
+          easing: "ease-in-out",
+        }
+      );
+    };
+
+    // Shake immediately
+    shake();
+
+    // Continue shaking every 400ms
+    this.shakeInterval = window.setInterval(shake, 400);
+  }
+
+  private stopShakeAnimation(): void {
+    if (this.shakeInterval !== null) {
+      clearInterval(this.shakeInterval);
+      this.shakeInterval = null;
+    }
   }
 
   private async revealFortune(holdDuration: number): Promise<void> {
