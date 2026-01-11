@@ -37,31 +37,82 @@
   cursor: pointer;
 }
 
-/* Modal Content */
+/* Modal Content - ใบเซียมซี */
 .fortune-modal-content {
   position: relative;
-  background: var(--color-bg-primary);
-  border-radius: 16px;
-  padding: 2.5rem 2rem;
+  background: linear-gradient(to bottom, #faf8f0 0%, #f5f3e8 50%, #f0ead5 100%);
+  border-radius: 4px 4px 2px 2px;
+  padding: 3rem 2rem 2.5rem;
   max-width: 90%;
-  width: 500px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-  transform: scale(0.9) translateY(20px);
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-  animation: fortuneModalIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  width: 280px;
+  min-height: 420px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(139, 115, 85, 0.2);
+  border-top: 2px solid rgba(139, 115, 85, 0.3);
+  display: flex;
+  flex-direction: column;
+  transform: translateY(100vh) rotate(0deg);
+  transition: transform 0.6s cubic-bezier(0.34, 1.2, 0.64, 1);
+  animation: fortuneSlipPullOut 0.8s cubic-bezier(0.34, 1.2, 0.64, 1) forwards;
+  clip-path: polygon(
+    0% 2%,
+    2% 0%,
+    5% 1.5%,
+    8% 0.5%,
+    12% 2%,
+    15% 0.8%,
+    18% 2.2%,
+    22% 1%,
+    25% 1.8%,
+    28% 0.6%,
+    32% 2.2%,
+    35% 1.2%,
+    38% 2%,
+    42% 0.8%,
+    45% 1.6%,
+    48% 0.4%,
+    52% 2.4%,
+    55% 1.4%,
+    58% 2.2%,
+    62% 1%,
+    65% 2%,
+    68% 0.8%,
+    72% 1.8%,
+    75% 0.6%,
+    78% 2.2%,
+    82% 1.2%,
+    85% 2%,
+    88% 0.8%,
+    92% 1.6%,
+    95% 0.4%,
+    98% 2%,
+    100% 1%,
+    100% 100%,
+    0% 100%
+  );
+}
+
+[data-theme="dark"] .fortune-modal-content {
+  background: linear-gradient(to bottom, #2a2520 0%, #252118 50%, #1f1d15 100%);
+  border-color: rgba(180, 150, 100, 0.3);
+  border-top-color: rgba(180, 150, 100, 0.4);
 }
 
 .fortune-modal-visible .fortune-modal-content {
-  transform: scale(1) translateY(0);
+  transform: translateY(0) rotate(0deg);
 }
 
-@keyframes fortuneModalIn {
-  from {
-    transform: scale(0.8) translateY(40px);
+@keyframes fortuneSlipPullOut {
+  0% {
+    transform: translateY(100vh) rotate(-2deg);
     opacity: 0;
   }
-  to {
-    transform: scale(1) translateY(0);
+  60% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
     opacity: 1;
   }
 }
@@ -89,33 +140,71 @@
   transform: rotate(90deg);
 }
 
+/* เลขเซียมซี */
+.fortune-slip-number {
+  position: absolute;
+  top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #8b7355;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+[data-theme="dark"] .fortune-slip-number {
+  color: #b89968;
+}
+
 /* Fortune Category */
 .fortune-category {
   font-size: 0.875rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--color-text-muted);
+  color: #8b7355;
   margin-bottom: 1rem;
   text-align: center;
+  border-bottom: 1px dashed rgba(139, 115, 85, 0.3);
+  padding-bottom: 0.75rem;
+}
+
+[data-theme="dark"] .fortune-category {
+  color: #b89968;
+  border-bottom-color: rgba(184, 153, 104, 0.3);
 }
 
 /* Fortune Message */
 .fortune-message {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 500;
-  line-height: 1.6;
-  color: var(--color-text-primary);
+  line-height: 1.8;
+  color: #3d3020;
   text-align: center;
   margin-bottom: 1.5rem;
+  font-family: "Sarabun", -apple-system, BlinkMacSystemFont, sans-serif;
+  padding: 0 0.5rem;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+[data-theme="dark"] .fortune-message {
+  color: #e8dcc8;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 /* Fortune Emojis */
 .fortune-emojis {
-  font-size: 2.5rem;
+  font-size: 2rem;
   text-align: center;
   letter-spacing: 0.5rem;
-  animation: emojiFloat 2s ease-in-out infinite;
+  margin-top: auto;
+  padding-top: 1.5rem;
+  border-top: 1px dashed rgba(139, 115, 85, 0.2);
+}
+
+[data-theme="dark"] .fortune-emojis {
+  border-top-color: rgba(184, 153, 104, 0.2);
 }
 
 @keyframes emojiFloat {
@@ -140,8 +229,9 @@
 @media (max-width: 640px) {
   .fortune-modal-content {
     padding: 3rem 1.5rem 2rem;
-    width: 90%;
-    max-width: none;
+    width: 85%;
+    max-width: 320px;
+    min-height: 480px;
   }
 
   .fortune-modal-close {
@@ -150,7 +240,11 @@
   }
 
   .fortune-message {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
+  }
+
+  .fortune-emojis {
+    font-size: 1.75rem;
   }
 }
 
