@@ -6,6 +6,7 @@ import SchemaPerson from "../components/SchemaPerson.astro";
 import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
 import "../styles/global.css";
+import "../styles/fortune-easter-egg.css";
 import Highlight from "../components/Highlight.astro";
 
 const pageTitle = "Home";
@@ -80,6 +81,7 @@ const colors = ["blue", "gray", "green", "pink", "cream", "yellow"] as const;
               height={256}
               loading="eager"
               class="w-64 h-64 md:w-64 md:h-64 select-none"
+              data-fortune-easter-egg="hand"
             />
           </div>
         </div>
@@ -157,3 +159,7 @@ const colors = ["blue", "gray", "green", "pink", "cream", "yellow"] as const;
 
   <Footer slot="footer" />
 </BaseLayout>
+
+<script>
+  import "../scripts/fortune-easter-egg.ts";
+</script>

@@ -1,0 +1,6 @@
+{
+    "livePreview.defaultPreviewPath": "http://localhost:4321",
+    "livePreview.autoRefreshPreview": "On Changes to Saved Files",
+    "livePreview.serverRoot": "/",
+    "livePreview.portNumber": 4321
+}
