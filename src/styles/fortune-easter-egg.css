@@ -160,3 +160,26 @@
   -moz-user-select: none;
   -ms-user-select: none;
 }
+
+/* Mobile emoji hand interaction */
+[data-fortune-easter-egg="hand-emoji"] {
+  display: inline-block;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  transition: transform 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+  /* No cursor: pointer on touch devices */
+}
+
+/* Hide on desktop (md breakpoint and up = 768px) */
+@media (min-width: 768px) {
+  [data-fortune-easter-egg="hand-emoji"] {
+    display: none;
+  }
+}
+
+[data-fortune-easter-egg="hand-emoji"]:active {
+  transform: scale(0.95);
+}
