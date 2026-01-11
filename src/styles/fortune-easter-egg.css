@@ -168,6 +168,21 @@
   text-align: center;
   border-bottom: 1px dashed rgba(139, 115, 85, 0.3);
   padding-bottom: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.fortune-category-en {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.fortune-category-th {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  opacity: 0.75;
 }
 
 [data-theme="dark"] .fortune-category {
@@ -186,6 +201,23 @@
   font-family: "Sarabun", -apple-system, BlinkMacSystemFont, sans-serif;
   padding: 0 0.5rem;
   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.fortune-message-th {
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.fortune-message-en {
+  font-size: 0.9375rem;
+  font-weight: 400;
+  opacity: 0.7;
+  font-style: italic;
+  line-height: 1.5;
 }
 
 [data-theme="dark"] .fortune-message {
@@ -246,8 +278,12 @@
     padding: 0.25rem 0.5rem;
   }
 
-  .fortune-message {
+  .fortune-message-th {
     font-size: 1.15rem;
+  }
+
+  .fortune-message-en {
+    font-size: 0.875rem;
   }
 
   .fortune-emojis {
