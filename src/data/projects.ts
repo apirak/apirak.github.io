@@ -114,4 +114,12 @@ export const miniProjects: Project[] = [
     image: "mini_design_conversation.jpeg",
     color: "green",
   },
+  {
+    title: "Markdown Preview",
+    description:
+      "A live Markdown preview tool built for teaching how to write AI prompts using Markdown. Includes a built-in Markdown cheat sheet for quick reference.",
+    link: "https://markdown.apirak.com",
+    image: "mini_markdown.png",
+    color: "cream",
+  },
 ];
