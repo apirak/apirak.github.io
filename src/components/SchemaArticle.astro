@@ -9,42 +9,47 @@ interface Props {
 }
 
 const { title, description, image, pubDate, url, categories } = Astro.props;
+const socialImage = image
+  ? new URL(image, Astro.site).href
+  : "https://apirak.com/assets/image/apirak@2x.jpg";
 
 const articleSchema = {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": title,
-  "image": image || "https://apirak.com/assets/image/apirak@2x.jpg",
-  "datePublished": pubDate.toISOString(),
-  "dateModified": pubDate.toISOString(),
-  "author": {
+  headline: title,
+  image: socialImage,
+  datePublished: pubDate.toISOString(),
+  dateModified: pubDate.toISOString(),
+  author: {
     "@type": "Person",
-    "name": "Apirak Panatkool",
-    "url": "https://apirak.com",
-    "jobTitle": "Product Design Specialist",
-    "sameAs": [
+    name: "Apirak Panatkool",
+    url: "https://apirak.com",
+    jobTitle: "Product Design Specialist",
+    sameAs: [
       "https://www.facebook.com/apirak",
       "https://www.linkedin.com/in/apirak",
       "https://twitter.com/apirak",
-      "https://github.com/apirak"
-    ]
+      "https://github.com/apirak",
+    ],
   },
-  "publisher": {
+  publisher: {
     "@type": "Organization",
-    "name": "Apirak Panatkool",
-    "logo": {
+    name: "Apirak Panatkool",
+    logo: {
       "@type": "ImageObject",
-      "url": "https://apirak.com/assets/image/apirak@2x.jpg"
-    }
+      url: "https://apirak.com/assets/image/apirak@2x.jpg",
+    },
   },
-  "description": description,
-  "mainEntityOfPage": {
+  description: description,
+  mainEntityOfPage: {
     "@type": "WebPage",
-    "@id": url
+    "@id": url,
   },
-  "keywords": categories?.join(', ') || "UX Design, Product Design, Agile UX, UX Designer Thailand",
-  "articleSection": categories?.[0] || "UX Design",
-  "inLanguage": "th-TH"
+  keywords:
+    categories?.join(", ") ||
+    "UX Design, Product Design, Agile UX, UX Designer Thailand",
+  articleSection: categories?.[0] || "UX Design",
+  inLanguage: "th-TH",
 };
 ---
 
