@@ -20,7 +20,8 @@ export const getStaticPaths = (async () => {
 
 const { entry } = Astro.props;
 const { Content } = await entry.render();
-const { title, description, pubDate, image, tags, categories } = entry.data;
+const { title, description, pubDate, image, imageAlt, tags, categories } =
+  entry.data;
 const fullURL = new URL(Astro.url.pathname, Astro.site).toString();
 ---
 
@@ -84,7 +85,8 @@ const fullURL = new URL(Astro.url.pathname, Astro.site).toString();
           image && (
             <img
               src={image}
-              alt={title}
+              alt={imageAlt || ""}
+              role={imageAlt ? undefined : "presentation"}
               class="w-full rounded-lg mb-8"
               style="box-shadow: var(--shadow-card);"
             />
