@@ -1,0 +1,89 @@
+{
+  "$schema": "https://frontmatter.codes/frontmatter.schema.json",
+  "frontMatter.framework.id": "astro",
+  "frontMatter.preview.host": "http://localhost:4321",
+  "frontMatter.content.wysiwyg": false,
+  "frontMatter.content.publicFolder": "public",
+  "frontMatter.content.pageFolders": [
+    {
+      "title": "blog",
+      "path": "[[workspace]]/src/content/blog"
+    },
+    {
+      "title": ".github",
+      "path": "[[workspace]]/.github"
+    },
+    {
+      "title": "_site",
+      "path": "[[workspace]]/_site"
+    }
+  ],
+  "frontMatter.taxonomy.contentTypes": [
+    {
+      "name": "blog",
+      "previewPath": "blog",
+      "pageBundle": false,
+      "clearEmpty": true,
+      "fields": [
+        {
+          "name": "title",
+          "type": "string",
+          "single": true,
+          "required": true
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "single": true,
+          "required": true
+        },
+        {
+          "name": "author",
+          "type": "string",
+          "single": true,
+          "default": "Apirak Panatkool"
+        },
+        {
+          "name": "pubDate",
+          "type": "datetime",
+          "default": "{{now}}",
+          "required": true
+        },
+        {
+          "name": "updatedDate",
+          "type": "datetime",
+          "default": "{{now}}"
+        },
+        {
+          "name": "preview",
+          "type": "image",
+          "isPreviewImage": true
+        },
+        {
+          "name": "imageAlt",
+          "type": "string",
+          "single": true
+        },
+        {
+          "name": "categories",
+          "type": "categories",
+          "default": []
+        },
+        {
+          "name": "tags",
+          "type": "tags",
+          "default": []
+        },
+        {
+          "title": "fmContentType",
+          "name": "fmContentType",
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "frontMatter.taxonomy.seoTitleLength": 90,
+  "frontMatter.taxonomy.seoDescriptionLength": 200,
+  "frontMatter.website.host": "https://apirak.com",
+  "frontMatter.git.enabled": true
+}

@@ -1,12 +1,19 @@
 ---
-title: "คุมคุณภาพ AI Chatbot ด้วยหลัก Paul Grice"
-description: "สรุป 4 กฎการสื่อสารของ Paul Grice (Quality, Quantity, Relation, Manner) พร้อมวิธีเขียน System Prompt เพื่อออกแบบ AI Chatbot ให้ตอบตรงประเด็น น่าเชื่อถือ และมีบุคลิกแบรนด์"
+title: คุมคุณภาพ AI Chatbot ด้วยหลัก Paul Grice
+description: สรุป 4 กฎการสื่อสารของ Paul Grice (Quality, Quantity, Relation, Manner) พร้อมวิธีเขียน System Prompt ให้ตอบตรงประเด็น น่าเชื่อถือ และมีบุคลิกแบรนด์
 author: Apirak Panatkool
 pubDate: 2026-03-5
-image: /assets/image/blog_2026/paul_grice.png
-imageAlt: "Infographic สรุป 4 หลักการสื่อสารประกอบด้วย Quality (พูดจริง), Quantity (พูดพอดี), Relation (ตรงประเด็น) และ Manner (เป็นธรรมชาติและมีบุคลิก)"
-categories: [Conversation Design, AI, Chatbot]
-tags: [Paul Grice, LLM, AI Chatbot]
+preview: /assets/image/blog_2026/paul_grice.png
+imageAlt: Infographic สรุป 4 หลักการสื่อสารประกอบด้วย Quality (พูดจริง), Quantity (พูดพอดี), Relation (ตรงประเด็น) และ Manner (เป็นธรรมชาติและมีบุคลิก)
+categories:
+  - Conversation Design
+  - AI
+  - Chatbot
+tags:
+  - Paul Grice
+  - LLM
+  - AI Chatbot
+fmContentType: blog
 ---
 
 import Callout from "../../components/Callout.astro";
@@ -57,7 +64,7 @@ import Highlight from "../../components/Highlight.astro";
 
 แบบที่ไม่ดีคือ AI พยายามเอาใจแต่พูดเกินจริงจากข้อมูลสินค้า ถ้าเราสามารถให้ข้อมูลเรื่องการบำรุงขนกับ AI มันก็จะสามารถ **ค้าน** ความเชื่อของลูกค้าได้อย่างมั่นใจ
 
-## Quantity:
+### Quantity:
 
 กฎข้อนี้คือการทำ **Progressive Disclosure** ครับ คือการเลือกตอบเฉพาะที่ลูกค้าถาม ไม่ต้องร่ายยาวเป็นเรียงความจนลูกค้าขี้เกียจอ่าน
 
@@ -71,7 +78,7 @@ import Highlight from "../../components/Highlight.astro";
 
 แบบที่ไม่ดีคือตอบเยอะเกินไป กะให้จบในการตอบทีเดียว ทำให้ไม่เกิดบทสนทนาและทำให้คนไม่อยากอ่านด้วย จริงๆ อันนี้เป็นตัวอย่างที่ดีมากๆ ครับ เพราะเวลาถาม ChatGPT มันชอบตอบยาวๆ ให้จบในทีเดียว แล้วเราก็ชอบด้วย เพราะมันเอาไปใช้ได้ทันที เราไม่ได้อยากคุยเล่นกับ ChatGPT ไม่เหมือนเราคุยกับคน หรือคุยกับ Admin ร้านค้า
 
-## Relation:
+### Relation:
 
 คือการเข้าใจ **Context** และ **Conversation History** ไม่พาลูกค้าออกทะเล และต้องจบด้วยเป้าหมายทางธุรกิจ (Call to Action) เสมอ
 
@@ -83,7 +90,7 @@ import Highlight from "../../components/Highlight.astro";
 
 จะเห็นว่าคำตอบแรกนั้นตอบไม่ตรงคำถามเรื่องการลดน้ำหนัก แต่ไปตอบเรื่องความปลอดภัยแทน
 
-## Manner:
+### Manner:
 
 คือการออกแบบ **Persona** ครับ ตั้งแต่น้ำเสียง (Tone) ไปจนถึงคำศัพท์ที่ใช้ให้เข้ากับกลุ่มเป้าหมาย เพื่อให้บทสนทนาลื่นไหลและเข้าใจง่ายที่สุด
 
@@ -131,7 +138,7 @@ import Highlight from "../../components/Highlight.astro";
 
 > System Prompt
 >
-> ตอบคำถามโดยใช้ข้อมูลจาก Context ที่ให้ไว้เท่านั้น หากข้อมูลที่ลูกค้าถามไม่มีในระบบ ให้แจ้งลูกค้าไปตรงๆ ว่า "นุดขอโทษโฮ่ง ข้อมูลส่วนนี้ไม่มีในมือเลย" แทนการคาดเดา
+> ตอบคำถามโดยใช้ข้อมูลจาก Context ที่ให้ไว้เท่านั้น หากข้อมูลที่ลูกค้าถามไม่มีในระบบ ให้แจ้งลูกค้าไปตรงๆ ว่า "ขอโทษนะนุด ข้อมูลส่วนนี้ไม่มีในมือเลย โฮ่ง" แทนการคาดเดา
 >
 > - Concise Response: สรุปใจความสำคัญให้สั้นที่สุดเพียงประเด็นเดียวต่อการตอบหนึ่งครั้ง เพื่อให้บทสนทนาลื่นไหลเหมือนคนคุยกัน
 > - Dynamic Engagement: กรณีที่ลูกค้าถามคำถามกว้างๆ ให้เลือกดึงจุดเด่นของสินค้ามาเพียง 1 อย่าง แล้วจบด้วยการถามคำถามกลับเพื่อสอบถามความสนใจของลูกค้าทันที

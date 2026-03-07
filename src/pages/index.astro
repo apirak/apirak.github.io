@@ -16,7 +16,7 @@ const pageDescription =
 // Get all blog posts sorted by date (newest first)
 const allPosts = await getCollection("blog");
 const sortedPosts = allPosts.sort(
-  (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
+  (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime(),
 );
 
 // Color map for blog cards
@@ -101,12 +101,12 @@ const colors = ["blue", "gray", "green", "pink", "cream", "yellow"] as const;
                 class="blog-card rounded-lg overflow-hidden transition-all duration-500 ease-in-out hover:shadow-md flex flex-col h-full"
                 style={`background-color: ${colorMap[colors[index % colors.length]]};`}
               >
-                {post.data.image && (
+                {post.data.preview && (
                   <a href={`/blog/${post.slug}`} class="block">
                     <div class="aspect-video overflow-hidden">
                       <Image
-                        src={post.data.image}
-                        alt={post.data.title}
+                        src={post.data.preview}
+                        alt={post.data.imageAlt || post.data.title}
                         width={800}
                         height={450}
                         loading={index < 3 ? "eager" : "lazy"}

@@ -2,5 +2,7 @@
     "livePreview.defaultPreviewPath": "http://localhost:4321",
     "livePreview.autoRefreshPreview": "On Changes to Saved Files",
     "livePreview.serverRoot": "/",
-    "livePreview.portNumber": 4321
+    "livePreview.portNumber": 4321,
+    "frontMatter.panel.openOnSupportedFile": true,
+    "frontMatter.dashboard.openOnStart": true
 }

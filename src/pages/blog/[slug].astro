@@ -20,17 +20,17 @@ export const getStaticPaths = (async () => {
 
 const { entry } = Astro.props;
 const { Content } = await entry.render();
-const { title, description, pubDate, image, imageAlt, tags, categories } =
+const { title, description, pubDate, preview, imageAlt, tags, categories } =
   entry.data;
 const fullURL = new URL(Astro.url.pathname, Astro.site).toString();
 ---
 
-<BaseLayout title={title} description={description} image={image}>
+<BaseLayout title={title} description={description} image={preview}>
   <SchemaArticle
     slot="schema"
     title={title}
     description={description}
-    image={image}
+    image={preview}
     pubDate={pubDate}
     url={fullURL}
     categories={categories}
@@ -82,9 +82,9 @@ const fullURL = new URL(Astro.url.pathname, Astro.site).toString();
 
         {/* Featured Image */}
         {
-          image && (
+          preview && (
             <img
-              src={image}
+              src={preview}
               alt={imageAlt || ""}
               role={imageAlt ? undefined : "presentation"}
               class="w-full rounded-lg mb-8"
