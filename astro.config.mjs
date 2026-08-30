@@ -14,6 +14,15 @@ export default defineConfig({
   site: "https://apirak.com",
   integrations: [sitemap(), icon(), mdx()],
 
+  markdown: {
+    shikiConfig: {
+      themes: {
+        light: "github-light",
+        dark: "github-dark",
+      },
+    },
+  },
+
   vite: {
     plugins: [tailwindcss()],
   },
