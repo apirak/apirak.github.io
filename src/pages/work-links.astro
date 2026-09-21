@@ -1,0 +1,122 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import WorkIllustration from "../components/WorkIllustration.astro";
+import { Icon } from "astro-icon/components";
+import "../styles/global.css";
+
+const workspaces = [
+  { name: "UXAcademy.in.th", host: "uxacademy", kind: "learn", label: "LEARN & SHARE", note: "พื้นที่ของการเรียนรู้และแบ่งปัน", color: "lavender" },
+  { name: "apirak.com", host: "apirakpanatkool", kind: "create", label: "THINK & CREATE", note: "พื้นที่ของไอเดียและการลงมือทำ", color: "peach" },
+  { name: "Solidplan", host: "solidplan", kind: "grow", label: "PLAN & GROW", note: "พื้นที่ของการวางแผนและเติบโต", color: "sage" },
+] as const;
+const apps = [
+  { name: "Lark", path: "", icon: "paper-plane", note: "เข้าสู่พื้นที่ทำงาน" },
+  { name: "Base", path: "/base", icon: "table-cells-large", note: "ข้อมูลและโปรเจกต์" },
+  { name: "Mail", path: "/mail", icon: "envelope", note: "กล่องจดหมาย" },
+  { name: "Calendar", path: "/calendar", icon: "calendar-days", note: "ปฏิทินและนัดหมาย" },
+  { name: "Admin", path: "/admin", icon: "sliders", note: "จัดการพื้นที่ทำงาน" },
+];
+---
+
+<BaseLayout title="Work Links" description="มุมทำงานของ Apirak รวมลิงก์ Lark, Base, Mail, Calendar และ Admin ของ UXAcademy, apirak.com และ Solidplan ไว้ในที่เดียว">
+  <Navbar slot="navbar" />
+  <div class="work-page">
+    <header class="intro">
+      <span class="eyebrow"><span aria-hidden="true">✳</span> MY LITTLE WORK CORNER</span>
+      <h1>Good work starts <span>here<svg viewBox="0 0 180 15" aria-hidden="true"><path d="M4 10Q80-2 176 7M21 13Q94 5 155 11" /></svg></span><span class="period">.</span></h1>
+      <span class="handwritten">A little more focus, a little less searching.</span>
+    </header>
+
+    <section aria-labelledby="workspaces-title">
+      <div class="section-heading">
+        <h2 id="workspaces-title">เลือกพื้นที่ทำงาน</h2>
+        <span>3 workspaces <span aria-hidden="true">·</span> 15 shortcuts</span>
+      </div>
+      <div class="workspace-grid">
+        {workspaces.map((workspace, index) => (
+          <article class={`workspace ${workspace.color}`} aria-labelledby={`workspace-${index}`}>
+            <div class="cover">
+              <div class="cover-label"><span>{workspace.label}</span><span>0{index + 1}</span></div>
+              <WorkIllustration kind={workspace.kind} />
+              <h3 id={`workspace-${index}`}>{workspace.name}</h3>
+              <p>{workspace.note}</p>
+            </div>
+            <ul class="app-list">
+              {apps.map((app) => (
+                <li>
+                  <a href={`https://${workspace.host}.jp.larksuite.com${app.path}`} target="_blank" rel="noopener noreferrer" aria-label={`${workspace.name} — ${app.name} (เปิดแท็บใหม่)`}>
+                    <span class={`app-icon ${app.name.toLowerCase()}`}><Icon name={`fa6-solid:${app.icon}`} /></span>
+                    <span class="app-text"><strong>{app.name}</strong><span>{app.note}</span></span>
+                    <Icon name="fa6-solid:arrow-up-right-from-square" class="external" />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))}
+      </div>
+    </section>
+    <div class="signoff"><span aria-hidden="true">✿</span> Make room for a good workday.</div>
+  </div>
+  <Footer slot="footer" />
+</BaseLayout>
+
+<style>
+  .work-page { max-width: 1140px; margin: auto; padding: 64px 24px 12px; }
+  .intro { text-align: center; margin-bottom: 64px; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 9px; color: var(--color-text-muted); font-size: 11px; font-weight: 600; letter-spacing: 2px; }
+  .eyebrow > span { color: #9c84b6; font-size: 23px; }
+  h1 { font-size: clamp(36px, 5.5vw, 62px); font-weight: 750; letter-spacing: -2.5px; line-height: 1.25; margin: 16px 0 24px; }
+  h1 > span:first-child { position: relative; display: inline-block; }
+  h1 svg { position: absolute; width: 100%; height: 15px; bottom: -8px; left: 0; fill: none; stroke: #c6afd9; stroke-width: 4; stroke-linecap: round; }
+  .period { color: #9c84b6; }
+  .intro p { color: var(--color-text-secondary); font-size: 17px; }
+  .handwritten { display: block; font-family: "Caveat", cursive; font-size: 23px; color: var(--color-text-muted); margin-top: 10px; }
+  .section-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 20px; }
+  .section-heading h2 { font-size: 16px; font-weight: 600; }
+  .section-heading > span { color: var(--color-text-muted); font-size: 12px; }
+  .workspace-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+  .workspace { --cover: #f0eaf8; --accent: #75608c; background: var(--color-surface); border: 1px solid var(--color-border-light); border-radius: 24px; overflow: hidden; }
+  .peach { --cover: #fbede4; --accent: #926654; }
+  .sage { --cover: #eaf1e5; --accent: #597353; }
+  .cover { background: var(--cover); color: #322d36; padding: 22px 24px 25px; }
+  .cover-label { display: flex; justify-content: space-between; color: var(--accent); font-size: 10px; font-weight: 650; letter-spacing: 1.6px; }
+  .cover :global(svg) { width: 100%; height: 156px; color: var(--accent); margin-top: 5px; }
+  .cover h3 { font-size: 23px; font-weight: 700; letter-spacing: -.5px; margin-top: 5px; }
+  .cover p { font-size: 13px; margin-top: 4px; color: #625767; }
+  .app-list { list-style: none; padding: 12px; margin: 0; }
+  .app-list a { display: flex; align-items: center; gap: 13px; padding: 12px; min-height: 68px; border-radius: 12px; color: var(--color-text-primary); text-decoration: none; transition: background .15s; }
+  .app-list a:hover { background: var(--color-bg-secondary); }
+  .app-list a:focus-visible { outline: 2px solid var(--color-link-primary); outline-offset: -2px; background: var(--color-bg-secondary); }
+  .app-icon { width: 38px; height: 38px; flex: none; display: grid; place-items: center; border-radius: 11px; background: #edf1ff; color: #647abe; }
+  .app-icon :global(svg) { width: 16px; height: 16px; }
+  .base { background: #f0eafa; color: #8864b3; }
+  .mail { background: #e8f2fb; color: #487ead; }
+  .calendar { background: #fcebe6; color: #b26957; }
+  .admin { background: #edf0eb; color: #6c7965; }
+  .app-text { flex: 1; display: flex; flex-direction: column; gap: 1px; }
+  .app-text strong { font-size: 14px; font-weight: 600; }
+  .app-text > span { font-size: 11px; color: var(--color-text-muted); }
+  .app-list :global(.external) { width: 11px; height: 11px; color: var(--color-text-muted); }
+  .app-list li:last-child { border-top: 1px dashed var(--color-border-light); margin-top: 6px; padding-top: 6px; }
+  .link-note { display: flex; justify-content: center; align-items: baseline; gap: 8px; font-size: 12px; color: var(--color-text-muted); margin-top: 24px; text-align: center; }
+  .link-note :global(svg) { width: 11px; height: 11px; flex: none; }
+  .signoff { display: flex; justify-content: center; align-items: center; gap: 10px; font-family: "Caveat", cursive; font-size: 23px; color: var(--color-text-muted); margin: 44px 0 24px; }
+  .signoff span { font-family: sans-serif; color: #ac91c3; font-size: 25px; }
+  :global([data-theme="dark"]) .workspace { --cover: #302a3c; --accent: #c6b3df; }
+  :global([data-theme="dark"]) .peach { --cover: #3a2d28; --accent: #e2b49d; }
+  :global([data-theme="dark"]) .sage { --cover: #27352c; --accent: #b3cca7; }
+  :global([data-theme="dark"]) .cover { color: #f1eaf4; }
+  :global([data-theme="dark"]) .cover p { color: #cec3d0; }
+  @media (max-width: 760px) {
+    .work-page { max-width: 520px; padding: 40px 20px 8px; }
+    .intro { margin-bottom: 40px; }
+    h1 { letter-spacing: -1.5px; }
+    .workspace-grid { grid-template-columns: 1fr; gap: 24px; }
+    .cover :global(svg) { height: 165px; }
+    .section-heading { flex-wrap: wrap; }
+    .signoff { font-size: 21px; }
+  }
+</style>

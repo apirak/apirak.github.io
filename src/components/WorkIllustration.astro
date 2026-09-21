@@ -1,0 +1,45 @@
+---
+interface Props { kind: "learn" | "create" | "grow" }
+const { kind } = Astro.props;
+---
+
+<svg viewBox="0 0 320 180" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <ellipse cx="160" cy="157" rx="112" ry="9" fill="currentColor" opacity=".08" />
+  <g stroke="#514655" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M43 151H279" opacity=".35" />
+    <path d="M60 47v12m-6-6h12M260 74v10m-5-5h10" stroke="currentColor" />
+    <circle cx="249" cy="35" r="4" fill="#FFCE79" stroke="none" />
+    {kind === "learn" && <>
+      <rect x="88" y="117" width="137" height="23" rx="6" fill="#BDA7E7" />
+      <path d="M109 124h101m-101 8h88" stroke="#F9F4FF" />
+      <rect x="77" y="137" width="150" height="13" rx="5" fill="#FFE2A7" />
+      <path d="M91 143h118" stroke="#C99553" />
+      <path d="M107 55q24-10 53 5 29-15 53-5v59q-25-6-53 6-28-12-53-6Z" fill="#FFFCF4" />
+      <path d="M160 60v60m-41-48 27 3m-27 10 27 3m-27 10 19 2m34-25 27-3m-27 16 27-3m-27 15 19-2" stroke="#B7A5C9" />
+      <path d="M147 42q-17-7-9-20 8-9 16 3 7-16 17-8 12 12-24 25Z" fill="#F4ABC0" />
+      <path d="M233 128v-24q-19 0-18-17 20-2 18 17 1-22 19-19 0 18-19 19" fill="#B9D6B8" />
+      <path d="M221 126h27l-4 24h-19Z" fill="#F3B6A0" />
+    </>}
+    {kind === "create" && <>
+      <rect x="88" y="43" width="137" height="93" rx="12" fill="#F9C3AC" />
+      <rect x="97" y="52" width="119" height="72" rx="6" fill="#FFF9EB" />
+      <path d="M151 136v14m-20 0h54" />
+      <path d="m126 77-13 11 13 11m61-22 13 11-13 11m-26-25-9 29" stroke="#B77567" stroke-width="4" />
+      <path d="M53 116h25v22q0 12-12 12t-13-12Zm25 4h5q13 10-5 17" fill="#DBCEA9" />
+      <path d="M60 104q-6-7 1-13m9 12q-6-7 1-13" stroke="#B89A82" />
+      <path d="M231 124q0-15 12-15t12 15v26h-24Z" fill="#BCAAE1" />
+      <path d="M243 108V85m0 14q-22-2-19-17 18-1 19 17m0-8q0-19 18-19 2 16-18 19" fill="#BDD1AC" />
+      <path d="m230 42 6-12 6 12 13 3-13 4-6 12-6-12-12-4Z" fill="#FFD783" stroke="none" />
+    </>}
+    {kind === "grow" && <>
+      <rect x="88" y="87" width="40" height="63" rx="7" fill="#C4D8B7" />
+      <rect x="135" y="66" width="40" height="84" rx="7" fill="#FFF0B8" />
+      <rect x="182" y="103" width="40" height="47" rx="7" fill="#E2CAE8" />
+      <path d="M155 65V40m0 14q-28-1-28-23 26-1 28 23m0-9q2-26 28-23 0 22-28 23" fill="#95BF98" />
+      <path d="M102 110v8m12-8v8m-12 13q6 6 12 0m35-39v8m12-8v8m-12 13q6 6 12 0m-35 33h-12" />
+      <path d="m68 75 9-18 9 18 19 3-19 5-9 18-9-18-18-5Z" fill="#F8CE80" stroke="none" />
+      <path d="M240 130v20m-10-10h20" stroke="#7C9C7C" />
+      <path d="M208 63q-12-6-7-15 7-7 13 2 6-10 12-3 7 10-18 16Z" fill="#F1B8B3" />
+    </>}
+  </g>
+</svg>
